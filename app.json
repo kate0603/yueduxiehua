@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/reading/reading",
+    "pages/writing/writing",
+    "pages/reading/detail",
+    "pages/writing/practice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#667eea",
+    "navigationBarTitleText": "阅读写话",
+    "navigationBarTextStyle": "white"
+  }
+}

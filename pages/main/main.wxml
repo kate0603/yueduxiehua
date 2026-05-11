@@ -1,0 +1,84 @@
+<view class="container">
+  <!-- Animated Header -->
+  <view class="header">
+    <view class="title-wrapper">
+      <view class="star star-1">🌟</view>
+      <view class="title">阅读写话</view>
+      <view class="star star-2">⭐</view>
+    </view>
+    <view class="subtitle">快乐学习，快乐成长！</view>
+    <view class="sparkles">✨ ✨ ✨</view>
+  </view>
+
+  <!-- Daily Tip with Animation -->
+  <view class="tip-card animate-float">
+    <view class="tip-header">
+      <view class="tip-icon">💡</view>
+      <view class="tip-title">今日小贴士</view>
+    </view>
+    <view class="tip-content">{{dailyTip}}</view>
+    <view class="tip-footer">加油哦！💪</view>
+  </view>
+
+  <!-- Modules with Animation -->
+  <view class="module-list">
+    <view class="module-card reading-card animate-bounce-in" 
+          style="background: linear-gradient(135deg, #4CAF50, #8BC34A);"
+          data-path="/pages/reading/reading" bindtap="goToModule">
+      <view class="module-icon-wrapper">
+        <view class="module-icon">📖</view>
+        <view class="module-badge">热门</view>
+      </view>
+      <view class="module-info">
+        <view class="module-title">阅读理解</view>
+        <view class="module-desc">阅读短文，回答有趣的问题</view>
+      </view>
+      <view class="module-arrow">→</view>
+    </view>
+
+    <view class="module-card writing-card animate-bounce-in-delay" 
+          wx:if="{{showWriting}}"
+          style="background: linear-gradient(135deg, #2196F3, #64B5F6);"
+          data-path="/pages/writing/writing" bindtap="goToModule">
+      <view class="module-icon-wrapper">
+        <view class="module-icon">✍️</view>
+        <view class="module-badge">新上线</view>
+      </view>
+      <view class="module-info">
+        <view class="module-title">看图写话</view>
+        <view class="module-desc">观察图片，写出精彩故事</view>
+      </view>
+      <view class="module-arrow">→</view>
+    </view>
+  </view>
+
+  <!-- Fun Facts -->
+  <view class="fun-fact-card">
+    <view class="fun-icon">🎲</view>
+    <view class="fun-content">
+      <view class="fun-title">趣味语文小知识</view>
+      <view class="fun-text">{{funFact}}</view>
+    </view>
+  </view>
+
+  <!-- Progress Bar -->
+  <view class="progress-section">
+    <view class="progress-title">📊 我的学习进度</view>
+    <view class="progress-bars">
+      <view class="progress-item">
+        <view class="progress-label">阅读完成</view>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{readingProgress}}%"></view>
+        </view>
+        <view class="progress-percent">{{readingProgress}}%</view>
+      </view>
+      <view class="progress-item">
+        <view class="progress-label">写作完成</view>
+        <view class="progress-bar">
+          <view class="progress-fill writing" style="width: {{writingProgress}}%"></view>
+        </view>
+        <view class="progress-percent">{{writingProgress}}%</view>
+      </view>
+    </view>
+  </view>
+</view>

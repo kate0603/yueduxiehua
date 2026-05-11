@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- Quick Navigation -->
+  <view class="quick-nav">
+    <view class="nav-item" bindtap="goToIndex">🏠 首页</view>
+    <view class="nav-item active">📖 阅读</view>
+    <view class="nav-item" bindtap="goToWriting" wx:if="{{showWriting}}">✍️ 写话</view>
+  </view>
+
+  <!-- Category Filter with Fun Icons -->
+  <view class="category-header">
+    <view class="category-title">📚 选择文章类型</view>
+  </view>
+  <scroll-view class="category-bar" scroll-x="true">
+    <view class="category-item {{currentCategory === item.id ? 'active' : ''}}" 
+          wx:for="{{categories}}" wx:key="id"
+          data-category="{{item.id}}" bindtap="selectCategory">
+      <view class="category-emoji">{{item.emoji}}</view>
+      <view class="category-name">{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- Article List with Fun Cards -->
+  <view class="article-list">
+    <view class="article-card {{item.completed ? 'completed' : ''}}" wx:for="{{articles}}" wx:key="id" 
+          data-id="{{item.id}}" bindtap="goDetail">
+      <view class="article-badge">{{item.badge}}</view>
+      <view class="article-content">
+        <view class="article-header">
+          <view class="article-icon">{{item.icon}}</view>
+          <view class="article-info">
+            <view class="article-title">{{item.title}}</view>
+            <view class="article-meta">
+              <view class="meta-item difficulty">
+                <text class="meta-icon">⭐</text>
+                <text>{{item.difficulty}}</text>
+              </view>
+              <view class="meta-item completed-tag" wx:if="{{item.completed}}">
+                <text>✅ 已完成</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="article-preview">{{item.preview}}</view>
+        <view class="article-footer">
+          <view class="footer-item">
+            <text class="footer-icon">📝</text>
+            <text>{{item.questions.length}}道题</text>
+          </view>
+          <view class="footer-arrow">{{item.completed ? '已完成' : '开始挑战'}} →</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Empty State -->
+  <view class="empty-state" wx:if="{{articles.length === 0}}">
+    <view class="empty-icon">📚</view>
+    <view class="empty-text">暂无文章</view>
+    <view class="empty-hint">试试其他分类吧！</view>
+  </view>
+</view>

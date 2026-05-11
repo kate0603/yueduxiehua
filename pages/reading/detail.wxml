@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="article-card">
+    <view class="article-header">
+      <view class="back-btn" bindtap="goBack">← 返回</view>
+      <view class="article-title">{{article.title}}</view>
+    </view>
+    
+    <view class="article-content">
+      <view class="content-icon">{{article.icon}}</view>
+      <view class="content-text" wx:for="{{contentParagraphs}}" wx:key="index">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="question-card">
+    <view class="question-header">
+      <view class="question-title">📝 练习题</view>
+      <view class="question-progress">
+        <view class="progress-bar-container">
+          <view class="progress-bar-fill" style="width: {{((currentIndex + 1) / article.questions.length) * 100}}%"></view>
+        </view>
+        <text class="progress-text">{{currentIndex + 1}}/{{article.questions.length}}</text>
+      </view>
+    </view>
+
+    <view class="question-content">
+      <view class="question-number">第 {{currentIndex + 1}} 题</view>
+      <view class="question-text">{{article.questions[currentIndex].question}}</view>
+      
+      <view class="options" wx:if="{{article.questions[currentIndex].type !== 'open'}}">
+        <view class="option {{item.isSelected ? 'selected' : ''}} {{item.isCorrect && showAnswer[currentIndex] ? 'correct' : ''}} {{item.isWrong ? 'wrong' : ''}}" wx:for="{{optionStates[currentIndex]}}" wx:key="index" data-question-index="{{currentIndex}}" data-answer="{{item.text}}" bindtap="selectAnswer">
+          <view class="option-icon">{{optionIcons[index]}}</view>
+          <view class="option-text">{{item.text}}</view>
+          <view class="option-check" wx:if="{{item.isSelected && item.isCorrect}}">✓</view>
+          <view class="option-correct" wx:if="{{item.isCorrect && showAnswer[currentIndex]}}">✨</view>
+          <view class="option-wrong" wx:if="{{item.isWrong}}">✗</view>
+        </view>
+      </view>
+      
+      <view class="open-question" wx:else>
+        <view class="open-hint">💡 {{article.questions[currentIndex].hint}}</view>
+        <textarea class="open-textarea" placeholder="请写下你的答案..." value="{{openAnswers[currentIndex]}}" data-question-index="{{currentIndex}}" bindinput="onOpenAnswerChange" maxlength="500" auto-height></textarea>
+      </view>
+    </view>
+
+    <view class="question-nav">
+      <view class="nav-btn {{currentIndex === 0 ? 'disabled' : ''}}" bindtap="prevQuestion">
+        <text>← 上一题</text>
+      </view>
+      <view class="nav-btn next {{currentIndex === article.questions.length - 1 ? 'disabled' : ''}}" bindtap="nextQuestion">
+        <text>下一题 →</text>
+      </view>
+    </view>
+
+    <view class="submit-btn" bindtap="submitAnswers" wx:if="{{!showResult}}">
+      <text>提交答案</text>
+      <view class="submit-sparkles">✨</view>
+    </view>
+
+    <view class="result-card" wx:if="{{showResult}}">
+      <view class="result-emoji">{{resultEmoji}}</view>
+      <view class="result-title">🎉 练习完成！</view>
+      <view class="result-score">
+        <text class="score-number">{{score}}</text>
+        <text class="score-divider">/</text>
+        <text class="score-total">{{article.questions.length}}</text>
+      </view>
+      <view class="result-message">{{resultMessage}}</view>
+      <view class="result-stars">{{resultStars}}</view>
+      
+      <view class="result-btn-group">
+        <view class="result-btn primary" bindtap="goBack">返回列表</view>
+        <view class="result-btn secondary" bindtap="restart">再做一次</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-nav">
+    <view class="bottom-nav-item" bindtap="goToIndex">🏠 首页</view>
+    <view class="bottom-nav-item active">📖 阅读</view>
+    <view class="bottom-nav-item" bindtap="goToWriting">✍️ 写话</view>
+  </view>
+</view>

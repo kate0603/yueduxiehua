@@ -1,0 +1,177 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">← 返回</view>
+    <view class="header-title">
+      <text class="title-emoji">{{topic && topic.emoji}}</text>
+      <text class="title-text">{{topic && topic.title}}</text>
+    </view>
+    <view class="header-placeholder"></view>
+  </view>
+
+  <view class="steps-bar">
+    <view class="step" wx:for="{{steps}}" wx:key="index">
+      <view class="step-num {{currentStep >= index ? 'active' : ''}}">{{index + 1}}</view>
+      <view class="step-name {{currentStep >= index ? 'active' : ''}}">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="image-section">
+    <view class="image-frame">
+      <image class="topic-image" src="{{topic && topic.image}}" mode="aspectFill" />
+    </view>
+    <view class="image-title">{{topic && topic.title}}</view>
+  </view>
+
+  <view class="step-content" wx:if="{{currentStep === 0}}">
+    <view class="content-card">
+      <view class="card-title">👀 观察图片</view>
+      <view class="image-hint">
+        <text class="hint-emoji">💡</text>
+        <text>仔细观察图片，想一想图片里有什么？发生了什么事？</text>
+      </view>
+    </view>
+    
+    <view class="method-card">
+      <view class="method-title">{{topic && topic.method && topic.method.icon}} 使用{{topic && topic.method && topic.method.name}}</view>
+      <view class="method-tips">
+        <view class="tip-item" wx:for="{{topic && topic.method && topic.method.tips}}" wx:key="index">
+          <view class="tip-num">{{index + 1}}</view>
+          <view class="tip-text">{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="step-content" wx:if="{{currentStep === 1}}">
+    <view class="content-card" wx:if="{{!showResult}}">
+      <view class="card-title">❓ 回答问题</view>
+      <view class="question-progress">第 {{currentQuestionIndex + 1}} / {{questions.length}} 题</view>
+      
+      <view class="question-box">
+        <view class="question-text">{{currentQuestion && currentQuestion.question}}</view>
+      </view>
+      
+      <view class="options-list">
+        <view class="option-item {{selectedOption === item ? 'selected' : ''}} {{showAnswer && item.charAt(0) === currentQuestion.answer ? 'correct' : ''}}" 
+              wx:for="{{currentQuestion && currentQuestion.options}}" 
+              wx:key="index"
+              bindtap="selectOption"
+              data-option="{{item}}">
+          <view class="option-letter">{{item.charAt(0)}}</view>
+          <view class="option-content">{{item.substring(3) || item}}</view>
+          <view class="option-icon" wx:if="{{showAnswer && item.charAt(0) === currentQuestion.answer}}">✓</view>
+        </view>
+      </view>
+      
+      <view class="submit-btn" wx:if="{{!showAnswer}}" bindtap="submitAnswer">提交答案</view>
+      
+      <view class="answer-tip" wx:if="{{showAnswer}}">
+        <view class="answer-tip-icon">{{isCorrectAnswer ? '✅' : '❌'}}</view>
+        <view class="answer-tip-text">
+          <text wx:if="{{isCorrectAnswer}}">太棒了！回答正确！🎉</text>
+          <text wx:else>正确答案是 <text class="correct-answer">{{currentQuestion.answer}}</text></text>
+        </view>
+      </view>
+      
+      <view class="next-question-btn" wx:if="{{showAnswer}}" bindtap="goToNextQuestion">
+        → 下一题
+      </view>
+    </view>
+
+    <view class="result-card" wx:if="{{showResult}}">
+      <view class="result-emoji">{{questionScore === questions.length ? '🎉' : '💪'}}</view>
+      <view class="result-text">
+        <text>你答对了 {{questionScore}} / {{questions.length}} 题！</text>
+      </view>
+      <view class="result-btn" bindtap="nextStep">继续下一步 →</view>
+    </view>
+  </view>
+
+  <view class="step-content" wx:if="{{currentStep === 2}}">
+    <view class="content-card" wx:if="{{!showResult}}">
+      <view class="card-title">📝 选词填空</view>
+      <view class="question-progress">第 {{currentQuestionIndex + 1}} / {{sentenceFillBlank.length}} 题</view>
+      
+      <view class="fill-blank-box">
+        <view class="fill-blank-sentence">{{sentenceFillBlank[currentQuestionIndex] && sentenceFillBlank[currentQuestionIndex].sentence}}</view>
+      </view>
+      
+      <view class="options-list">
+        <view class="option-item {{selectedOption === item ? 'selected' : ''}} {{showAnswer && item.charAt(0) === (sentenceFillBlank[currentQuestionIndex] && sentenceFillBlank[currentQuestionIndex].answer) ? 'correct' : ''}}" 
+              wx:for="{{sentenceFillBlank[currentQuestionIndex] && sentenceFillBlank[currentQuestionIndex].options}}" 
+              wx:key="index"
+              bindtap="selectSentenceOption"
+              data-option="{{item}}">
+          <view class="option-letter">{{item.charAt(0)}}</view>
+          <view class="option-content">{{item.substring(3) || item}}</view>
+          <view class="option-icon" wx:if="{{showAnswer && item.charAt(0) === (sentenceFillBlank[currentQuestionIndex] && sentenceFillBlank[currentQuestionIndex].answer)}}">✓</view>
+        </view>
+      </view>
+      
+      <view class="submit-btn" wx:if="{{!showAnswer}}" bindtap="submitSentence">提交答案</view>
+      
+      <view class="answer-tip" wx:if="{{showAnswer}}">
+        <view class="answer-tip-icon">{{isCorrectAnswer ? '✅' : '❌'}}</view>
+        <view class="answer-tip-text">
+          <text wx:if="{{isCorrectAnswer}}">太棒了！回答正确！🎉</text>
+          <text wx:else>正确答案是 <text class="correct-answer">{{sentenceFillBlank[currentQuestionIndex] && sentenceFillBlank[currentQuestionIndex].answer}}</text></text>
+        </view>
+      </view>
+      
+      <view class="next-question-btn" wx:if="{{showAnswer}}" bindtap="goToNextQuestion">
+        → 下一题
+      </view>
+    </view>
+    
+    <view class="result-card" wx:if="{{showResult}}">
+      <view class="result-emoji">{{sentenceScore === (sentenceFillBlank.length || 5) ? '🎉' : '💪'}}</view>
+      <view class="result-text">
+        <text>你答对了 {{sentenceScore}} / {{sentenceFillBlank.length || 5}} 题！</text>
+      </view>
+      <view class="result-btn" bindtap="nextStep">继续下一步 →</view>
+    </view>
+  </view>
+
+  <view class="step-content" wx:if="{{currentStep === 3}}">
+    <view class="content-card">
+      <view class="card-title">🏆 优秀范文</view>
+      <view class="sample-text">
+        <text>{{topic && topic.sample}}</text>
+      </view>
+    </view>
+    
+    <view class="score-card">
+      <view class="score-title">📊 本次练习得分</view>
+      <view class="score-info">
+        <view class="score-item">
+          <text class="score-label">问答得分</text>
+          <text class="score-value">{{questionScore}}/{{questions.length}}</text>
+        </view>
+        <view class="score-item">
+          <text class="score-label">造句得分</text>
+          <text class="score-value">{{sentenceScore}}/{{sentenceFillBlank.length}}</text>
+        </view>
+      </view>
+      <view class="total-score">
+        <text class="total-label">总分</text>
+        <text class="total-value">{{questionScore + sentenceScore}}/{{questions.length + sentenceFillBlank.length}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-bar" wx:if="{{currentStep === 0 || (currentStep === 1 && !showResult) || (currentStep === 2)}}">
+    <view class="btn-prev" bindtap="prevStep" wx:if="{{currentStep > 0}}">← 上一步</view>
+    <view class="btn-prev disabled" wx:else>← 上一步</view>
+    
+    <view class="btn-next" bindtap="nextStep" wx:if="{{currentStep === 0}}">下一步 →</view>
+  </view>
+
+  <view class="action-bar" wx:if="{{currentStep === 3}}">
+    <view class="btn-finish" bindtap="goBack">🎉 完成练习</view>
+  </view>
+
+  <view class="bottom-nav">
+    <view class="nav-item" bindtap="goToIndex">🏠 首页</view>
+    <view class="nav-item active">✍️ 写话</view>
+  </view>
+</view>

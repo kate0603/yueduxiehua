@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="header">
+    <view class="title-wrapper">
+      <view class="star star-1">📚</view>
+      <view class="title">阅读写话</view>
+      <view class="star star-2">✍️</view>
+    </view>
+    <view class="subtitle">快乐学习，快乐成长！</view>
+    <view class="sparkles">✨ ✨ ✨</view>
+  </view>
+
+  <view wx:if="{{!showReadingOptions && !showWritingOptions}}" class="mode-section">
+    <view class="mode-title">📖 请选择学习模式</view>
+    <view class="mode-options">
+      <view class="mode-item reading" bindtap="selectMode" data-mode="reading">
+        <view class="mode-badge">🎯</view>
+        <view class="mode-icon">📖</view>
+        <view class="mode-name">阅读理解</view>
+        <view class="mode-desc">提升阅读能力</view>
+        <view class="mode-arrow">→</view>
+      </view>
+      <view class="mode-divider">
+        <view class="divider-dot">⚪</view>
+        <view class="divider-line"></view>
+        <view class="divider-dot">⚪</view>
+      </view>
+      <view class="mode-item writing" bindtap="goToWriting">
+        <view class="mode-badge">✨</view>
+        <view class="mode-icon">🖼️</view>
+        <view class="mode-name">看图写话</view>
+        <view class="mode-desc">激发写作灵感</view>
+        <view class="mode-arrow">→</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{showReadingOptions}}" class="options-section">
+    <view class="back-btn" bindtap="goBack">← 返回</view>
+    <view class="options-title">📚 选择难度等级</view>
+    <view class="options-subtitle">选择适合你的阅读难度</view>
+    <view class="difficulty-options">
+      <view class="difficulty-item {{selectedReadingDifficulty && selectedReadingDifficulty.id === item.id ? 'active' : ''}}"
+            wx:for="{{readingDifficulties}}" wx:key="id"
+            bindtap="selectReadingDifficulty"
+            data-id="{{item.id}}" data-name="{{item.name}}" data-emoji="{{item.emoji}}" data-grade="{{item.grade}}">
+        <view class="difficulty-badge">{{item.emoji}}</view>
+        <view class="difficulty-content">
+          <view class="difficulty-star">{{item.difficulty}}</view>
+          <view class="difficulty-name">{{item.name}}</view>
+        </view>
+        <view class="difficulty-check" wx:if="{{selectedReadingDifficulty && selectedReadingDifficulty.id === item.id}}">✓</view>
+      </view>
+    </view>
+    <view class="confirm-btn" bindtap="confirmReading">
+      <text>开始阅读 ✓</text>
+    </view>
+  </view>
+
+  <view wx:if="{{!showReadingOptions}}" class="welcome-card">
+    <view class="welcome-icon">🎒</view>
+    <view class="welcome-title">准备好了吗？</view>
+    <view class="welcome-desc">选择学习模式，开始你的语文学习之旅！</view>
+  </view>
+</view>
