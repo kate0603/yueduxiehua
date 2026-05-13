@@ -15,8 +15,8 @@
       <view class="mode-item reading" bindtap="selectMode" data-mode="reading">
         <view class="mode-badge">🎯</view>
         <view class="mode-icon">📖</view>
-        <view class="mode-name">阅读理解</view>
-        <view class="mode-desc">提升阅读能力</view>
+        <view class="mode-name">精读训练</view>
+        <view class="mode-desc">提升精读能力</view>
         <view class="mode-arrow">→</view>
       </view>
       <view class="mode-divider">

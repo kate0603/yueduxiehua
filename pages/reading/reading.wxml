@@ -1,61 +1,85 @@
 <view class="container">
-  <!-- Quick Navigation -->
   <view class="quick-nav">
     <view class="nav-item" bindtap="goToIndex">🏠 首页</view>
-    <view class="nav-item active">📖 阅读</view>
+    <view class="nav-item active">📖 精读训练</view>
     <view class="nav-item" bindtap="goToWriting" wx:if="{{showWriting}}">✍️ 写话</view>
   </view>
 
-  <!-- Category Filter with Fun Icons -->
-  <view class="category-header">
-    <view class="category-title">📚 选择文章类型</view>
-  </view>
-  <scroll-view class="category-bar" scroll-x="true">
-    <view class="category-item {{currentCategory === item.id ? 'active' : ''}}" 
-          wx:for="{{categories}}" wx:key="id"
-          data-category="{{item.id}}" bindtap="selectCategory">
-      <view class="category-emoji">{{item.emoji}}</view>
-      <view class="category-name">{{item.name}}</view>
+  <view class="tabs-container">
+    <view class="tab-item {{activeTab === item.id ? 'active' : ''}}" 
+          wx:for="{{tabs}}" wx:key="id"
+          data-tab="{{item.id}}" bindtap="selectTab">
+      <text class="tab-emoji">{{item.emoji}}</text>
+      <text class="tab-name">{{item.name}}</text>
     </view>
-  </scroll-view>
+  </view>
 
-  <!-- Article List with Fun Cards -->
-  <view class="article-list">
-    <view class="article-card {{item.completed ? 'completed' : ''}}" wx:for="{{articles}}" wx:key="id" 
-          data-id="{{item.id}}" bindtap="goDetail">
-      <view class="article-badge">{{item.badge}}</view>
-      <view class="article-content">
-        <view class="article-header">
-          <view class="article-icon">{{item.icon}}</view>
-          <view class="article-info">
-            <view class="article-title">{{item.title}}</view>
-            <view class="article-meta">
-              <view class="meta-item difficulty">
-                <text class="meta-icon">⭐</text>
-                <text>{{item.difficulty}}</text>
-              </view>
-              <view class="meta-item completed-tag" wx:if="{{item.completed}}">
-                <text>✅ 已完成</text>
-              </view>
-            </view>
+  <view class="content-area">
+    <view wx:if="{{activeTab === 'method'}}">
+      <view class="section-title">📚 精读方法</view>
+      <view class="method-list">
+        <view class="method-card" wx:for="{{readingMethods}}" wx:key="id"
+              data-method="{{item}}" bindtap="showMethodDetail">
+          <view class="method-icon">{{item.icon}}</view>
+          <view class="method-info">
+            <view class="method-title">{{item.title}}</view>
+            <view class="method-desc">{{item.description}}</view>
           </view>
-        </view>
-        <view class="article-preview">{{item.preview}}</view>
-        <view class="article-footer">
-          <view class="footer-item">
-            <text class="footer-icon">📝</text>
-            <text>{{item.questions.length}}道题</text>
-          </view>
-          <view class="footer-arrow">{{item.completed ? '已完成' : '开始挑战'}} →</view>
+          <view class="method-arrow">→</view>
         </view>
       </view>
     </view>
-  </view>
 
-  <!-- Empty State -->
-  <view class="empty-state" wx:if="{{articles.length === 0}}">
-    <view class="empty-icon">📚</view>
-    <view class="empty-text">暂无文章</view>
-    <view class="empty-hint">试试其他分类吧！</view>
+    <view wx:if="{{activeTab === 'practice'}}">
+      <view class="category-header">
+        <view class="category-title">🎯 选择文章类型</view>
+      </view>
+      <scroll-view class="category-bar" scroll-x="true">
+        <view class="category-item {{currentCategory === item.id ? 'active' : ''}}" 
+              wx:for="{{categories}}" wx:key="id"
+              data-category="{{item.id}}" bindtap="selectCategory">
+          <view class="category-emoji">{{item.emoji}}</view>
+          <view class="category-name">{{item.name}}</view>
+        </view>
+      </scroll-view>
+
+      <view class="article-list">
+        <view class="article-card {{item.completed ? 'completed' : ''}}" wx:for="{{articles}}" wx:key="id" 
+              data-id="{{item.id}}" bindtap="goDetail">
+          <view class="article-badge">{{item.badge}}</view>
+          <view class="article-content">
+            <view class="article-header">
+              <view class="article-icon">{{item.icon}}</view>
+              <view class="article-info">
+                <view class="article-title">{{item.title}}</view>
+                <view class="article-meta">
+                  <view class="meta-item difficulty">
+                    <text class="meta-icon">⭐</text>
+                    <text>{{item.difficulty}}</text>
+                  </view>
+                  <view class="meta-item completed-tag" wx:if="{{item.completed}}">
+                    <text>✅ 已完成</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="article-preview">{{item.preview}}</view>
+            <view class="article-footer">
+              <view class="footer-item">
+                <text class="footer-icon">📝</text>
+                <text>{{item.questions.length}}道题</text>
+              </view>
+              <view class="footer-arrow">{{item.completed ? '已完成' : '开始挑战'}} →</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="empty-state" wx:if="{{articles.length === 0}}">
+        <view class="empty-icon">📚</view>
+        <view class="empty-text">暂无文章</view>
+        <view class="empty-hint">试试其他分类吧！</view>
+      </view>
+    </view>
   </view>
 </view>

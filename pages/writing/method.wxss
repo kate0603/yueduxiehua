@@ -115,3 +115,23 @@
   font-size: 40rpx;
   color: rgba(255, 255, 255, 0.8);
 }
+
+.method-card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.method-lock {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.lock-icon {
+  font-size: 28rpx;
+}
+
+.lock-text {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+}

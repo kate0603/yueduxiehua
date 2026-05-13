@@ -20,7 +20,7 @@
       <image 
         class="topic-image" 
         src="{{topic && topic.image}}" 
-        mode="aspectFill" 
+        mode="widthFix" 
         binderror="onImageError"
         bindload="onImageLoad"
       />

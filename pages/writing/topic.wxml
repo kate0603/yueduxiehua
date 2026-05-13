@@ -45,8 +45,9 @@
         
         <view class="completed-label" wx:if="{{doneTopics.length > 0}}">已完成</view>
         
-        <view class="topic-card completed" 
-              wx:for="{{doneTopics}}" wx:key="id">
+        <view class="topic-card completed {{selectedTopic === item.id ? 'selected' : ''}}" 
+              wx:for="{{doneTopics}}" wx:key="id" 
+              bindtap="selectTopic" data-id="{{item.id}}">
           <view class="topic-info">
             <view class="topic-emoji">{{item.emoji}}</view>
             <view class="topic-title">{{item.title}}</view>
@@ -56,6 +57,7 @@
             </view>
             <view class="completed-tag">✓ 已完成</view>
           </view>
+          <view class="topic-check" wx:if="{{selectedTopic === item.id}}">✓</view>
         </view>
       </view>
     </scroll-view>

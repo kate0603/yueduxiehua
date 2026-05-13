@@ -7,6 +7,11 @@ Page({
     currentCategory: 'all',
     currentGrade: 3,
     showWriting: true,
+    activeTab: 'method',
+    tabs: [
+      { id: 'method', name: '精读方法', emoji: '📚' },
+      { id: 'practice', name: '专项训练', emoji: '🎯' }
+    ],
     categories: [
       { id: 'all', name: '全部', emoji: '🎯' },
       { id: 'story', name: '故事', emoji: '📖' },
@@ -17,7 +22,57 @@ Page({
       { id: 'life', name: '生活', emoji: '🏠' }
     ],
     badges: ['🔥 热门', '💎 精选', '⭐ 推荐', '🎁 新上线', '🏆 经典'],
-    completedArticles: []
+    completedArticles: [],
+    readingMethods: [
+      { 
+        id: 1, 
+        title: '圈点批注法', 
+        icon: '✏️', 
+        description: '在阅读时圈出关键词，批注自己的理解和感受',
+        steps: ['通读全文了解大意', '圈出重点词语和句子', '在空白处写下批注', '总结文章主旨'],
+        sampleArticleId: 1001
+      },
+      { 
+        id: 2, 
+        title: '提问阅读法', 
+        icon: '❓', 
+        description: '带着问题去阅读，主动思考文章内容',
+        steps: ['阅读前提出问题', '边读边寻找答案', '记录不懂的地方', '读完后总结回答'],
+        sampleArticleId: 1002
+      },
+      { 
+        id: 3, 
+        title: '思维导图法', 
+        icon: '🧠', 
+        description: '用思维导图梳理文章结构和内容',
+        steps: ['确定文章中心主题', '梳理各段落要点', '建立知识点联系', '绘制思维导图'],
+        sampleArticleId: 1003
+      },
+      { 
+        id: 4, 
+        title: '角色代入法', 
+        icon: '🎭', 
+        description: '想象自己是文中角色，体会人物的感受',
+        steps: ['理解人物性格特点', '代入角色思考问题', '体会人物情感变化', '分析人物行为动机'],
+        sampleArticleId: 1004
+      },
+      { 
+        id: 5, 
+        title: '复述法', 
+        icon: '🗣️', 
+        description: '读完后用自己的话复述文章内容',
+        steps: ['分段阅读理解内容', '提炼段落核心意思', '串联各段形成整体', '用自己的话复述'],
+        sampleArticleId: 1005
+      },
+      { 
+        id: 6, 
+        title: '对比阅读法', 
+        icon: '🔄', 
+        description: '对比多篇文章的相同点和不同点',
+        steps: ['找出文章共同点', '分析文章差异', '比较写作手法', '总结阅读收获'],
+        sampleArticleId: 1006
+      }
+    ]
   },
 
   onLoad() {
@@ -82,6 +137,11 @@ Page({
     this.setData({ articles });
   },
 
+  selectTab(e) {
+    const tabId = e.currentTarget.dataset.tab;
+    this.setData({ activeTab: tabId });
+  },
+
   selectCategory(e) {
     const category = e.currentTarget.dataset.category;
     const { currentGrade, completedArticles } = this.data;
@@ -116,7 +176,7 @@ Page({
     const id = e.currentTarget.dataset.id;
     
     wx.showToast({
-      title: '📖 开始阅读！',
+      title: '📖 开始精读！',
       icon: 'none',
       duration: 800
     });
@@ -134,5 +194,21 @@ Page({
 
   goToWriting() {
     wx.redirectTo({ url: '/pages/writing/writing' });
+  },
+
+  showMethodDetail(e) {
+    const method = e.currentTarget.dataset.method;
+    
+    wx.showToast({
+      title: '📖 ' + method.title,
+      icon: 'none',
+      duration: 800
+    });
+    
+    setTimeout(() => {
+      wx.navigateTo({
+        url: `/pages/reading/detail?id=${method.sampleArticleId}`
+      });
+    }, 800);
   }
 });

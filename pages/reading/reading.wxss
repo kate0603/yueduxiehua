@@ -4,7 +4,6 @@
   min-height: 100vh;
 }
 
-/* Quick Navigation */
 .quick-nav {
   display: flex;
   justify-content: space-around;
@@ -29,7 +28,104 @@
   font-weight: bold;
 }
 
-/* Category Header */
+.tabs-container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24rpx;
+  padding: 10rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25rpx;
+  border-radius: 20rpx;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  background: linear-gradient(135deg, #4CAF50, #8BC34A);
+}
+
+.tab-emoji {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.tab-name {
+  font-size: 28rpx;
+  color: #666;
+  font-weight: bold;
+}
+
+.tab-item.active .tab-name {
+  color: #ffffff;
+}
+
+.content-area {
+  min-height: 60vh;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1565C0;
+  padding-left: 10rpx;
+  margin-bottom: 25rpx;
+}
+
+.method-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25rpx;
+}
+
+.method-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 25rpx rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.method-card:active {
+  transform: scale(0.98);
+}
+
+.method-icon {
+  font-size: 72rpx;
+  margin-right: 25rpx;
+}
+
+.method-info {
+  flex: 1;
+}
+
+.method-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #1565C0;
+  margin-bottom: 12rpx;
+}
+
+.method-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.method-arrow {
+  font-size: 40rpx;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
 .category-header {
   margin-bottom: 20rpx;
 }
@@ -41,7 +137,6 @@
   padding-left: 10rpx;
 }
 
-/* Category Bar */
 .category-bar {
   background: #ffffff;
   border-radius: 24rpx;
@@ -81,7 +176,6 @@
   color: #ffffff;
 }
 
-/* Article List */
 .article-list {
   display: flex;
   flex-direction: column;
@@ -206,7 +300,6 @@
   font-weight: bold;
 }
 
-/* Empty State */
 .empty-state {
   text-align: center;
   padding: 120rpx 0;
@@ -229,7 +322,6 @@
   color: #999;
 }
 
-/* Completed Article Styles */
 .article-card.completed {
   opacity: 0.75;
   background: linear-gradient(135deg, #F1F8E9, #DCEDC8);
@@ -250,7 +342,6 @@
   color: #66BB6A;
 }
 
-/* Animations */
 @keyframes iconFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   25% { transform: translateY(-5rpx) rotate(3deg); }

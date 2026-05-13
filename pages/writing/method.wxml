@@ -13,7 +13,7 @@
     <view class="section-desc">选择一种方法，开始你的写作之旅！</view>
     
     <view class="method-list">
-      <view class="method-card" 
+      <view class="method-card {{item.disabled ? 'disabled' : ''}}" 
             wx:for="{{methods}}" wx:key="id" 
             bindtap="selectMethod" data-method="{{item.id}}" 
             style="background: {{item.color}}">
@@ -22,7 +22,11 @@
           <view class="method-name">{{item.name}}</view>
           <view class="method-desc">{{item.desc}}</view>
         </view>
-        <view class="method-arrow">→</view>
+        <view class="method-arrow" wx:if="{{!item.disabled}}">→</view>
+        <view class="method-lock" wx:else>
+          <text class="lock-icon">🔒</text>
+          <text class="lock-text">未开放</text>
+        </view>
       </view>
     </view>
   </view>

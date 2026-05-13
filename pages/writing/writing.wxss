@@ -60,17 +60,17 @@
 .card-list {
   display: flex;
   flex-direction: column;
-  gap: 20rpx;
+  gap: 28rpx;
 }
 
 .card-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24rpx;
+  padding: 40rpx 32rpx;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20rpx;
-  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+  border-radius: 24rpx;
+  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.12);
   transition: all 0.3s;
 }
 
@@ -81,34 +81,34 @@
 .card-left {
   display: flex;
   align-items: center;
-  gap: 20rpx;
+  gap: 28rpx;
 }
 
 .icon-box {
-  width: 72rpx;
-  height: 72rpx;
+  width: 96rpx;
+  height: 96rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #F0F4FF, #E0E8FF);
-  border-radius: 16rpx;
-  font-size: 36rpx;
+  border-radius: 20rpx;
+  font-size: 48rpx;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  gap: 6rpx;
+  gap: 10rpx;
 }
 
 .name {
-  font-size: 30rpx;
+  font-size: 34rpx;
   font-weight: 600;
   color: #2D3748;
 }
 
 .hint {
-  font-size: 22rpx;
+  font-size: 26rpx;
   color: #A0AEC0;
 }
 
