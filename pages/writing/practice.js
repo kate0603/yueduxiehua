@@ -3,31 +3,31 @@ const { topics } = require('../../data/writing-data.js');
 const seasonQuestions = {
   spring: [
     { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
-    { question: '春天有什么花开了？', options: ['A. 桃花', 'B. 梅花', 'C. 菊花', 'D. 雪花'], answer: 'A' },
-    { question: '春天的天气怎么样？', options: ['A. 温暖', 'B. 炎热', 'C. 凉爽', 'D. 寒冷'], answer: 'A' },
-    { question: '春天可以做什么？', options: ['A. 春游', 'B. 游泳', 'C. 滑雪', 'D. 堆雪人'], answer: 'A' },
-    { question: '春天的颜色是什么？', options: ['A. 绿色', 'B. 白色', 'C. 黄色', 'D. 红色'], answer: 'A' }
+    { question: '小朋友们在哪里玩耍？', options: ['A. 花园', 'B. 河边', 'C. 雪地', 'D. 泳池'], answer: 'A' },
+    { question: '谁在花丛中飞舞？', options: ['A. 蝴蝶', 'B. 小鸟', 'C. 蜜蜂', 'D. 蜻蜓'], answer: 'A' },
+    { question: '发生了什么有趣的事？', options: ['A. 花儿开放了', 'B. 树叶飘落', 'C. 雪花飞舞', 'D. 太阳落山'], answer: 'A' },
+    { question: '春天给人的感觉怎么样？', options: ['A. 温暖快乐', 'B. 炎热烦躁', 'C. 凉爽舒适', 'D. 寒冷刺骨'], answer: 'A' }
   ],
   summer: [
     { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'B' },
-    { question: '夏天可以做什么？', options: ['A. 游泳', 'B. 堆雪人', 'C. 秋游', 'D. 赏花'], answer: 'A' },
-    { question: '夏天的天气怎么样？', options: ['A. 炎热', 'B. 凉爽', 'C. 温暖', 'D. 寒冷'], answer: 'A' },
-    { question: '夏天有什么水果？', options: ['A. 西瓜', 'B. 苹果', 'C. 橘子', 'D. 梨'], answer: 'A' },
-    { question: '夏天人们穿什么？', options: ['A. 短袖', 'B. 棉袄', 'C. 毛衣', 'D. 羽绒服'], answer: 'A' }
+    { question: '小朋友们在哪里游泳？', options: ['A. 游泳池', 'B. 小河', 'C. 池塘', 'D. 大海'], answer: 'A' },
+    { question: '夏天人们在做什么？', options: ['A. 游泳乘凉', 'B. 堆雪人', 'C. 摘苹果', 'D. 赏桃花'], answer: 'A' },
+    { question: '夏天有什么特色水果？', options: ['A. 西瓜', 'B. 苹果', 'C. 梨', 'D. 橘子'], answer: 'A' },
+    { question: '夏夜能看到什么小动物？', options: ['A. 萤火虫', 'B. 蝴蝶', 'C. 蜜蜂', 'D. 蚂蚁'], answer: 'A' }
   ],
   autumn: [
     { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'C' },
-    { question: '秋天的树叶是什么颜色？', options: ['A. 黄色', 'B. 绿色', 'C. 红色', 'D. 白色'], answer: 'A' },
-    { question: '秋天可以做什么？', options: ['A. 秋游', 'B. 游泳', 'C. 滑雪', 'D. 赏花'], answer: 'A' },
-    { question: '秋天有什么水果？', options: ['A. 苹果', 'B. 西瓜', 'C. 草莓', 'D. 樱桃'], answer: 'A' },
-    { question: '秋天的天气怎么样？', options: ['A. 凉爽', 'B. 炎热', 'C. 温暖', 'D. 寒冷'], answer: 'A' }
+    { question: '树叶是什么颜色的？', options: ['A. 金黄色', 'B. 绿色', 'C. 红色', 'D. 白色'], answer: 'A' },
+    { question: '树叶像什么在飞舞？', options: ['A. 蝴蝶', 'B. 小鸟', 'C. 雪花', 'D. 雨滴'], answer: 'A' },
+    { question: '田野里有什么庄稼？', options: ['A. 稻穗', 'B. 小麦', 'C. 玉米', 'D. 高粱'], answer: 'A' },
+    { question: '秋天给人的感觉怎么样？', options: ['A. 凉爽舒适', 'B. 炎热烦躁', 'C. 温暖快乐', 'D. 寒冷刺骨'], answer: 'A' }
   ],
   winter: [
     { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'D' },
-    { question: '冬天可以做什么？', options: ['A. 堆雪人', 'B. 游泳', 'C. 秋游', 'D. 赏花'], answer: 'A' },
-    { question: '冬天的天气怎么样？', options: ['A. 寒冷', 'B. 炎热', 'C. 凉爽', 'D. 温暖'], answer: 'A' },
-    { question: '冬天会下什么？', options: ['A. 雪', 'B. 雨', 'C. 冰雹', 'D. 霜'], answer: 'A' },
-    { question: '冬天人们穿什么？', options: ['A. 棉袄', 'B. 短袖', 'C. 裙子', 'D. 短裤'], answer: 'A' }
+    { question: '天空中下着什么？', options: ['A. 雪花', 'B. 雨滴', 'C. 冰雹', 'D. 露水'], answer: 'A' },
+    { question: '小朋友们在做什么？', options: ['A. 堆雪人', 'B. 游泳', 'C. 摘果子', 'D. 赏花'], answer: 'A' },
+    { question: '人们穿着什么衣服？', options: ['A. 棉袄', 'B. 短袖', 'C. 裙子', 'D. 短裤'], answer: 'A' },
+    { question: '雪人的鼻子是用什么做的？', options: ['A. 胡萝卜', 'B. 石头', 'C. 树枝', 'D. 糖果'], answer: 'A' }
   ]
 };
 
@@ -190,27 +190,29 @@ const getTopicQuestions = (topic) => {
 
 const distractors = {
   seasons: ['春', '夏', '秋', '冬'],
-  adjectives: ['美丽', '难看', '枯萎', '凋谢', '开心', '难过', '生气', '无聊', '快乐', '美好', '糟糕', '温暖', '炎热', '凉爽', '寒冷'],
-  verbs: ['飞舞', '飘落', '奔跑', '玩耍', '游泳', '戏水', '帮助', '搬', '拿', '找'],
-  nouns: ['蝴蝶', '小鸟', '雪花', '雨滴', '花朵', '花园', '泳池', '房间', '教室', '草地', '森林', '河边', '雪人', '棉袄'],
-  adverbs: ['翩翩', '慢慢', '静静', '悄悄', '开心', '伤心', '生气', '难过']
+  adjectives: ['美丽', '难看', '枯萎', '凋谢', '开心', '难过', '生气', '无聊', '快乐', '美好', '糟糕', '温暖', '炎热', '凉爽', '寒冷', '金黄', '雪白', '翠绿', '火红', '可爱', '勤劳', '有趣', '幸福'],
+  verbs: ['飞舞', '飘落', '奔跑', '玩耍', '游泳', '戏水', '帮助', '搬', '拿', '找', '采', '钓', '捉', '筑', '堆', '浇', '扫', '擦', '唱', '笑'],
+  nouns: ['蝴蝶', '小鸟', '雪花', '雨滴', '花朵', '花园', '泳池', '房间', '教室', '草地', '森林', '河边', '雪人', '棉袄', '雨伞', '彩虹', '西瓜', '萤火虫', '蘑菇', '鱼', '虫子', '鸟巢', '树枝', '篮子'],
+  adverbs: ['翩翩', '慢慢', '静静', '悄悄', '开心', '伤心', '生气', '难过', '认真', '仔细', '耐心', '快乐', '幸福']
 };
 
 const generateFillBlankFromSample = (sample) => {
-  const sentences = sample.split('。').filter(s => s.trim());
+  const allSentences = sample.split('。').filter(s => s.trim());
+  const selectedSentences = allSentences.length > 5 
+    ? allSentences.sort(() => Math.random() - 0.5).slice(0, 5)
+    : [...allSentences];
+  
   const fillBlankList = [];
   const usedWords = new Set();
   
-  for (const sentence of sentences) {
-    if (fillBlankList.length >= 5) break;
-    
+  for (const sentence of selectedSentences) {
     const matches = sentence.match(/([\u4e00-\u9fa5]{2,4})/g);
     if (!matches || matches.length < 2) continue;
     
     const candidates = matches.filter(word => {
       if (usedWords.has(word)) return false;
       if (word.length < 2) return false;
-      if (['的', '了', '是', '在', '有', '和', '我', '你', '他', '她', '它', '们', '都', '很', '不', '这', '那', '什么', '怎么', '为什么'].includes(word)) return false;
+      if (['的', '了', '是', '在', '有', '和', '我', '你', '他', '她', '它', '们', '都', '很', '不', '这', '那', '什么', '怎么', '为什么', '一个', '一起', '一样', '一会儿', '一些', '所有', '他们', '我们', '你们', '可以', '不能', '应该', '不要', '没有', '已经', '正在', '就要', '会', '不会', '能', '不能'].includes(word)) return false;
       return true;
     });
     
@@ -220,15 +222,26 @@ const generateFillBlankFromSample = (sample) => {
     const targetWord = candidates[randomIndex];
     usedWords.add(targetWord);
     
-    const distractorList = distractors.adjectives.includes(targetWord) ? distractors.adjectives :
-                          distractors.verbs.includes(targetWord) ? distractors.verbs :
-                          distractors.nouns.includes(targetWord) ? distractors.nouns :
-                          distractors.adverbs.includes(targetWord) ? distractors.adverbs :
-                          distractors.seasons;
+    let distractorList = [];
+    if (distractors.adjectives.includes(targetWord)) {
+      distractorList = [...distractors.adjectives];
+    } else if (distractors.verbs.includes(targetWord)) {
+      distractorList = [...distractors.verbs];
+    } else if (distractors.nouns.includes(targetWord)) {
+      distractorList = [...distractors.nouns];
+    } else if (distractors.adverbs.includes(targetWord)) {
+      distractorList = [...distractors.adverbs];
+    } else if (distractors.seasons.includes(targetWord)) {
+      distractorList = [...distractors.seasons];
+    } else {
+      distractorList = [...distractors.adjectives, ...distractors.verbs, ...distractors.nouns];
+    }
     
-    const options = [targetWord, ...distractorList.filter(d => d !== targetWord)]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 4);
+    const filteredDistractors = distractorList.filter(d => d !== targetWord && d.length >= 2);
+    const shuffledDistractors = filteredDistractors.sort(() => Math.random() - 0.5);
+    const selectedDistractors = shuffledDistractors.slice(0, 3);
+    
+    const options = [targetWord, ...selectedDistractors].sort(() => Math.random() - 0.5);
     
     const answerIndex = options.indexOf(targetWord);
     const answer = ['A', 'B', 'C', 'D'][answerIndex];
@@ -244,12 +257,13 @@ const generateFillBlankFromSample = (sample) => {
   while (fillBlankList.length < 5) {
     const defaultWords = ['开心', '快乐', '美好', '美丽', '温暖'];
     const word = defaultWords[fillBlankList.length];
-    const options = [word, ...distractors.adjectives.filter(d => d !== word)]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 4);
+    const filteredDistractors = distractors.adjectives.filter(d => d !== word);
+    const shuffledDistractors = filteredDistractors.sort(() => Math.random() - 0.5);
+    const selectedDistractors = shuffledDistractors.slice(0, 3);
+    const options = [word, ...selectedDistractors].sort(() => Math.random() - 0.5);
     const answerIndex = options.indexOf(word);
     fillBlankList.push({
-      sentence: `这里真____！`,
+      sentence: '这里真____！',
       blankAnswer: word,
       options: options.map((opt, idx) => `${['A', 'B', 'C', 'D'][idx]}. ${opt}`),
       answer: ['A', 'B', 'C', 'D'][answerIndex]
