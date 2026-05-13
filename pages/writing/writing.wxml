@@ -1,75 +1,41 @@
-<view class="container">
+<view class="page">
   <view class="header">
-    <view class="back-btn" bindtap="goBack">← 返回</view>
-    <view class="header-title">
-      <text class="title-emoji">✍️</text>
-      <text class="title-text">看图写话</text>
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <view class="title-wrap">
+      <text class="title-icon">✍️</text>
+      <text class="title">看图写话</text>
     </view>
     <view class="header-placeholder"></view>
   </view>
 
-  <view class="steps-bar">
-    <view class="step">
-      <view class="step-num {{step >= 1 ? 'active' : ''}}">1</view>
-      <view class="step-name {{step >= 1 ? 'active' : ''}}">选择方法</view>
-    </view>
-    <view class="step">
-      <view class="step-num {{step >= 2 ? 'active' : ''}}">2</view>
-      <view class="step-name {{step >= 2 ? 'active' : ''}}">选择图片</view>
-    </view>
-  </view>
-
-  <view wx:if="{{step === 1}}" class="section">
-    <view class="section-title">🎯 选择写作方法</view>
-    <view class="section-desc">选择一种方法，开始你的写作之旅！</view>
+  <view class="content">
+    <view class="desc-text">选择题型开始练习</view>
     
-    <view class="method-list">
-      <view class="method-card {{selectedMethod === item.id ? 'selected' : ''}}" 
-            wx:for="{{methods}}" wx:key="id" 
-            bindtap="selectMethod" data-method="{{item.id}}" 
-            style="background: {{selectedMethod === item.id ? item.color : '#f5f5f5'}}">
-        <view class="method-icon">{{item.icon}}</view>
-        <view class="method-info">
-          <view class="method-name">{{item.name}}</view>
-          <view class="method-desc">{{item.desc}}</view>
+    <view class="card-list">
+      <view 
+        class="card-item" 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        bindtap="handleCategoryTap"
+        data-category="{{item.id}}"
+      >
+        <view class="card-left">
+          <view class="icon-box">{{item.icon}}</view>
+          <view class="info">
+            <text class="name">{{item.name}}</text>
+            <text class="hint">{{item.suitable}}</text>
+          </view>
         </view>
-        <view class="method-check" wx:if="{{selectedMethod === item.id}}">✓</view>
+        <view class="card-right">
+          <view class="arrow" wx:if="{{item.id === 'single'}}">→</view>
+          <view class="lock" wx:else>
+            <text class="lock-icon">🔒</text>
+            <text class="lock-text">开发中</text>
+          </view>
+        </view>
       </view>
     </view>
-
-    <view class="next-btn" wx:if="{{selectedMethod}}" bindtap="nextStep">下一步 →</view>
-  </view>
-
-  <view wx:if="{{step === 2}}" class="section">
-    <view class="back-btn" bindtap="prevStep">← 返回选择方法</view>
-    <view class="section-title">🖼️ 选择图片主题</view>
-    <view class="section-desc">选择一个主题，根据图片内容进行写作练习！</view>
-    
-    <view class="topic-list">
-      <view class="topic-card {{selectedImage === item.id ? 'selected' : ''}}" 
-            wx:for="{{pendingImages}}" wx:key="id" 
-            bindtap="selectImage" data-id="{{item.id}}">
-        <view class="topic-emoji">{{item.emoji}}</view>
-        <view class="topic-info">
-          <view class="topic-name">{{item.name}}</view>
-        </view>
-        <view class="topic-check" wx:if="{{selectedImage === item.id}}">✓</view>
-      </view>
-      
-      <view class="completed-label" wx:if="{{doneImages.length > 0}}">已完成</view>
-      
-      <view class="topic-card completed {{selectedImage === item.id ? 'selected' : ''}}" 
-            wx:for="{{doneImages}}" wx:key="id" 
-            bindtap="selectImage" data-id="{{item.id}}">
-        <view class="topic-emoji">{{item.emoji}}</view>
-        <view class="topic-info">
-          <view class="topic-name">{{item.name}}</view>
-          <view class="completed-tag">✓ 已完成</view>
-        </view>
-        <view class="topic-check" wx:if="{{selectedImage === item.id}}">✓</view>
-      </view>
-    </view>
-
-    <view class="next-btn" wx:if="{{selectedImage}}" bindtap="startPractice">开始练习 →</view>
   </view>
 </view>

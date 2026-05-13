@@ -15,7 +15,11 @@ Page({
     resultEmoji: '',
     resultMessage: '',
     resultStars: '',
-    optionStates: []
+    optionStates: [],
+    readingProgress: 0,
+    answeredQuestions: [],
+    showWrongQuestions: false,
+    wrongQuestions: []
   },
 
   onLoad(options) {
@@ -25,6 +29,7 @@ Page({
       const userAnswers = new Array(article.questions.length).fill('');
       const openAnswers = new Array(article.questions.length).fill('');
       const showAnswer = new Array(article.questions.length).fill(false);
+      const answeredQuestions = new Array(article.questions.length).fill(false);
       const optionStates = article.questions.map((q, qIndex) => {
         if (q.type === 'open') return [];
         return q.options.map((opt, optIndex) => ({
@@ -41,9 +46,15 @@ Page({
         userAnswers,
         openAnswers,
         showAnswer,
-        optionStates
+        optionStates,
+        answeredQuestions,
+        readingProgress: this.calculateReadingProgress(contentParagraphs)
       });
     }
+  },
+
+  calculateReadingProgress(paragraphs) {
+    return Math.round((1 / paragraphs.length) * 100);
   },
 
   selectAnswer(e) {
@@ -55,12 +66,14 @@ Page({
     const userAnswers = this.data.userAnswers;
     const showAnswer = this.data.showAnswer;
     const optionStates = this.data.optionStates;
+    const answeredQuestions = this.data.answeredQuestions;
     
     const previousAnswer = userAnswers[questionIndex];
     const previousCorrect = previousAnswer && previousAnswer.charAt(0) === correctAnswer;
     
     userAnswers[questionIndex] = selectedAnswer;
     showAnswer[questionIndex] = true;
+    answeredQuestions[questionIndex] = true;
     
     let correctCount = this.data.correctCount;
     const selectedLetter = selectedAnswer.charAt(0);
@@ -107,7 +120,8 @@ Page({
       userAnswers,
       showAnswer,
       correctCount,
-      optionStates
+      optionStates,
+      answeredQuestions
     });
   },
 
@@ -115,14 +129,17 @@ Page({
     const questionIndex = e.currentTarget.dataset.questionIndex;
     const answer = e.detail.value;
     const openAnswers = this.data.openAnswers;
+    const answeredQuestions = this.data.answeredQuestions;
     openAnswers[questionIndex] = answer;
+    answeredQuestions[questionIndex] = answer.trim().length > 0;
     this.setData({
-      openAnswers
+      openAnswers,
+      answeredQuestions
     });
   },
 
   submitAnswers() {
-    const { article, correctCount, openAnswers } = this.data;
+    const { article, correctCount, openAnswers, userAnswers } = this.data;
     const choiceQuestions = article.questions.filter(q => q.type !== 'open');
     const openQuestions = article.questions.filter(q => q.type === 'open');
     
@@ -156,12 +173,30 @@ Page({
       stars = '⭐⭐';
     }
 
+    const wrongQuestions = article.questions.map((q, index) => {
+      const userAnswer = q.type === 'open' ? openAnswers[index] : userAnswers[index];
+      const isCorrect = q.type === 'open' ? 
+        userAnswer && userAnswer.trim().length > 0 :
+        (userAnswer && userAnswer.charAt(0) === q.correctAnswer);
+      
+      if (!isCorrect) {
+        return {
+          question: q.question,
+          correct: q.correctAnswer || '(开放性题目)',
+          user: userAnswer || '未作答',
+          tips: q.tips || '仔细阅读文章，找到相关信息作答。'
+        };
+      }
+      return null;
+    }).filter(q => q !== null);
+
     this.setData({
       showResult: true,
       score: totalCorrect,
       resultEmoji: emoji,
       resultMessage: message,
-      resultStars: stars
+      resultStars: stars,
+      wrongQuestions
     });
   },
 
@@ -195,13 +230,46 @@ Page({
     }
   },
 
+  jumpToQuestion(e) {
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      currentIndex: index
+    });
+  },
+
   restart() {
     const userAnswers = new Array(this.data.article.questions.length).fill('');
+    const openAnswers = new Array(this.data.article.questions.length).fill('');
+    const showAnswer = new Array(this.data.article.questions.length).fill(false);
+    const answeredQuestions = new Array(this.data.article.questions.length).fill(false);
+    const optionStates = this.data.article.questions.map((q, qIndex) => {
+      if (q.type === 'open') return [];
+      return q.options.map((opt, optIndex) => ({
+        text: opt,
+        isSelected: false,
+        isCorrect: opt.charAt(0) === q.correctAnswer,
+        isWrong: false
+      }));
+    });
+    
     this.setData({
       currentIndex: 0,
-      userAnswers: userAnswers,
+      userAnswers,
+      openAnswers,
+      showAnswer,
+      answeredQuestions,
+      optionStates,
       showResult: false,
-      score: 0
+      score: 0,
+      correctCount: 0,
+      showWrongQuestions: false,
+      wrongQuestions: []
+    });
+  },
+
+  toggleWrongQuestions() {
+    this.setData({
+      showWrongQuestions: !this.data.showWrongQuestions
     });
   },
 
@@ -215,5 +283,22 @@ Page({
 
   goToWriting() {
     wx.redirectTo({ url: '/pages/writing/writing' });
+  },
+
+  getQuestionType(type) {
+    const types = {
+      'choice': '选择题',
+      'open': '问答题',
+      'fill': '填空题'
+    };
+    return types[type] || '练习题';
+  },
+
+  locateInArticle() {
+    wx.showToast({
+      title: '定位原文功能开发中',
+      icon: 'none',
+      duration: 1000
+    });
   }
 });

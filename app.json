@@ -4,6 +4,8 @@
     "pages/main/main",
     "pages/reading/reading",
     "pages/writing/writing",
+    "pages/writing/method",
+    "pages/writing/topic",
     "pages/reading/detail",
     "pages/writing/practice"
   ],

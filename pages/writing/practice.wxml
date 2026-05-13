@@ -17,7 +17,28 @@
 
   <view class="image-section">
     <view class="image-frame">
-      <image class="topic-image" src="{{topic && topic.image}}" mode="aspectFill" />
+      <image 
+        class="topic-image" 
+        src="{{topic && topic.image}}" 
+        mode="aspectFill" 
+        binderror="onImageError"
+        bindload="onImageLoad"
+      />
+      <view class="image-overlay" wx:if="{{imageLoading || imageError}}">
+        <view class="overlay-content">
+          <view class="loading-spinner" wx:if="{{imageLoading}}">
+            <view class="spinner"></view>
+            <text class="loading-text">图片加载中...</text>
+          </view>
+          <view class="error-content" wx:else>
+            <text class="error-icon">📷</text>
+            <text class="error-text">图片加载失败</text>
+            <view class="refresh-btn" bindtap="refreshImage">
+              <text>🔄 点击刷新</text>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
     <view class="image-title">{{topic && topic.title}}</view>
   </view>

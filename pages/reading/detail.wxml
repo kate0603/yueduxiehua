@@ -3,12 +3,22 @@
     <view class="article-header">
       <view class="back-btn" bindtap="goBack">← 返回</view>
       <view class="article-title">{{article.title}}</view>
+      <view class="article-badge">{{article.difficulty}}</view>
     </view>
     
     <view class="article-content">
+      <view class="reading-progress-bar">
+        <view class="progress-bar-fill" style="width: {{readingProgress}}%"></view>
+      </view>
+      <view class="reading-progress-text">阅读进度 {{readingProgress}}%</view>
+      
       <view class="content-icon">{{article.icon}}</view>
-      <view class="content-text" wx:for="{{contentParagraphs}}" wx:key="index">
-        <text>{{item}}</text>
+      
+      <view class="paragraph-wrapper">
+        <view class="paragraph" wx:for="{{contentParagraphs}}" wx:key="index" data-paragraph="{{index}}">
+          <view class="paragraph-number">{{index + 1}}</view>
+          <text class="paragraph-text">{{item}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -24,12 +34,27 @@
       </view>
     </view>
 
+    <view class="question-nav-dots">
+      <view class="dot {{index === currentIndex ? 'active' : answeredQuestions[index] ? 'answered' : ''}}" 
+            wx:for="{{article.questions}}" wx:key="index" 
+            bindtap="jumpToQuestion" data-index="{{index}}">
+      </view>
+    </view>
+
     <view class="question-content">
       <view class="question-number">第 {{currentIndex + 1}} 题</view>
+      <view class="question-type-tag">{{getQuestionType(article.questions[currentIndex].type)}}</view>
       <view class="question-text">{{article.questions[currentIndex].question}}</view>
       
+      <view class="locate-btn" bindtap="locateInArticle">
+        <text>📍 在文中查找答案</text>
+      </view>
+      
       <view class="options" wx:if="{{article.questions[currentIndex].type !== 'open'}}">
-        <view class="option {{item.isSelected ? 'selected' : ''}} {{item.isCorrect && showAnswer[currentIndex] ? 'correct' : ''}} {{item.isWrong ? 'wrong' : ''}}" wx:for="{{optionStates[currentIndex]}}" wx:key="index" data-question-index="{{currentIndex}}" data-answer="{{item.text}}" bindtap="selectAnswer">
+        <view class="option {{item.isSelected ? 'selected' : ''}} {{item.isCorrect && showAnswer[currentIndex] ? 'correct' : ''}} {{item.isWrong ? 'wrong' : ''}}" 
+              wx:for="{{optionStates[currentIndex]}}" wx:key="index" 
+              data-question-index="{{currentIndex}}" data-answer="{{item.text}}" 
+              bindtap="selectAnswer">
           <view class="option-icon">{{optionIcons[index]}}</view>
           <view class="option-text">{{item.text}}</view>
           <view class="option-check" wx:if="{{item.isSelected && item.isCorrect}}">✓</view>
@@ -40,7 +65,12 @@
       
       <view class="open-question" wx:else>
         <view class="open-hint">💡 {{article.questions[currentIndex].hint}}</view>
-        <textarea class="open-textarea" placeholder="请写下你的答案..." value="{{openAnswers[currentIndex]}}" data-question-index="{{currentIndex}}" bindinput="onOpenAnswerChange" maxlength="500" auto-height></textarea>
+        <textarea class="open-textarea" placeholder="请写下你的答案..." 
+                  value="{{openAnswers[currentIndex]}}" 
+                  data-question-index="{{currentIndex}}" 
+                  bindinput="onOpenAnswerChange" 
+                  maxlength="500" 
+                  auto-height></textarea>
       </view>
     </view>
 
@@ -68,6 +98,27 @@
       </view>
       <view class="result-message">{{resultMessage}}</view>
       <view class="result-stars">{{resultStars}}</view>
+      
+      <view class="wrong-questions-toggle" bindtap="toggleWrongQuestions">
+        <text class="toggle-icon">📝</text>
+        <text>{{showWrongQuestions ? '收起错题分析' : '查看错题分析'}}</text>
+        <text class="toggle-arrow">{{showWrongQuestions ? '↑' : '↓'}}</text>
+      </view>
+      
+      <view class="wrong-questions-list" wx:if="{{showWrongQuestions}}">
+        <view class="wrong-item" wx:for="{{wrongQuestions}}" wx:key="index">
+          <view class="wrong-question">{{item.question}}</view>
+          <view class="wrong-analysis">
+            <text class="analysis-label">正确答案：</text>
+            <text class="analysis-correct">{{item.correct}}</text>
+          </view>
+          <view class="wrong-analysis" wx:if="{{item.user}}">
+            <text class="analysis-label">你的答案：</text>
+            <text class="analysis-wrong">{{item.user}}</text>
+          </view>
+          <view class="wrong-tips">💡 {{item.tips}}</view>
+        </view>
+      </view>
       
       <view class="result-btn-group">
         <view class="result-btn primary" bindtap="goBack">返回列表</view>

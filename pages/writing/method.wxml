@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">← 返回</view>
+    <view class="header-title">
+      <text class="title-emoji">🎯</text>
+      <text class="title-text">选择方法</text>
+    </view>
+    <view class="header-placeholder"></view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">📝 选择写作方法</view>
+    <view class="section-desc">选择一种方法，开始你的写作之旅！</view>
+    
+    <view class="method-list">
+      <view class="method-card" 
+            wx:for="{{methods}}" wx:key="id" 
+            bindtap="selectMethod" data-method="{{item.id}}" 
+            style="background: {{item.color}}">
+        <view class="method-icon">{{item.icon}}</view>
+        <view class="method-info">
+          <view class="method-name">{{item.name}}</view>
+          <view class="method-desc">{{item.desc}}</view>
+        </view>
+        <view class="method-arrow">→</view>
+      </view>
+    </view>
+  </view>
+</view>
