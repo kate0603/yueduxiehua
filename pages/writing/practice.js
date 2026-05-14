@@ -2,153 +2,184 @@ const { topics } = require('../../data/writing-data.js');
 
 const seasonQuestions = {
   spring: [
-    { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
-    { question: '小朋友们在哪里玩耍？', options: ['A. 花园', 'B. 河边', 'C. 雪地', 'D. 泳池'], answer: 'A' },
-    { question: '谁在花丛中飞舞？', options: ['A. 蝴蝶', 'B. 小鸟', 'C. 蜜蜂', 'D. 蜻蜓'], answer: 'A' },
-    { question: '发生了什么有趣的事？', options: ['A. 花儿开放了', 'B. 树叶飘落', 'C. 雪花飞舞', 'D. 太阳落山'], answer: 'A' },
-    { question: '春天给人的感觉怎么样？', options: ['A. 温暖快乐', 'B. 炎热烦躁', 'C. 凉爽舒适', 'D. 寒冷刺骨'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 花园', 'B. 河边', 'C. 雪地', 'D. 泳池'], answer: 'A' },
+    { question: '谁在花园里？', options: ['A. 小朋友和蝴蝶', 'B. 小猫', 'C. 小狗', 'D. 小鸡'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 花儿开放了', 'B. 树叶飘落', 'C. 雪花飞舞', 'D. 太阳落山'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家很开心', 'B. 天气变冷', 'C. 下雨了', 'D. 天黑了'], answer: 'A' }
   ],
   summer: [
-    { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'B' },
-    { question: '小朋友们在哪里游泳？', options: ['A. 游泳池', 'B. 小河', 'C. 池塘', 'D. 大海'], answer: 'A' },
-    { question: '夏天人们在做什么？', options: ['A. 游泳乘凉', 'B. 堆雪人', 'C. 摘苹果', 'D. 赏桃花'], answer: 'A' },
-    { question: '夏天有什么特色水果？', options: ['A. 西瓜', 'B. 苹果', 'C. 梨', 'D. 橘子'], answer: 'A' },
-    { question: '夏夜能看到什么小动物？', options: ['A. 萤火虫', 'B. 蝴蝶', 'C. 蜜蜂', 'D. 蚂蚁'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 夏天', 'B. 春天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 游泳池', 'B. 小河', 'C. 池塘', 'D. 大海'], answer: 'A' },
+    { question: '谁在游泳？', options: ['A. 小朋友们', 'B. 大人', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小朋友在游泳', 'B. 下雪了', 'C. 下雨了', 'D. 刮大风'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家很快乐', 'B. 天气变冷', 'C. 出太阳', 'D. 天黑了'], answer: 'A' }
   ],
   autumn: [
-    { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'C' },
-    { question: '树叶是什么颜色的？', options: ['A. 金黄色', 'B. 绿色', 'C. 红色', 'D. 白色'], answer: 'A' },
-    { question: '树叶像什么在飞舞？', options: ['A. 蝴蝶', 'B. 小鸟', 'C. 雪花', 'D. 雨滴'], answer: 'A' },
-    { question: '田野里有什么庄稼？', options: ['A. 稻穗', 'B. 小麦', 'C. 玉米', 'D. 高粱'], answer: 'A' },
-    { question: '秋天给人的感觉怎么样？', options: ['A. 凉爽舒适', 'B. 炎热烦躁', 'C. 温暖快乐', 'D. 寒冷刺骨'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 秋天', 'B. 春天', 'C. 夏天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 田野', 'B. 花园', 'C. 河边', 'D. 雪地'], answer: 'A' },
+    { question: '谁在田野里？', options: ['A. 农民伯伯', 'B. 小朋友', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 稻穗成熟了', 'B. 树叶发芽', 'C. 下雪了', 'D. 下雨了'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 庄稼丰收了', 'B. 天气变热', 'C. 出太阳', 'D. 天黑了'], answer: 'A' }
   ],
   winter: [
-    { question: '这是什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'D' },
-    { question: '天空中下着什么？', options: ['A. 雪花', 'B. 雨滴', 'C. 冰雹', 'D. 露水'], answer: 'A' },
-    { question: '小朋友们在做什么？', options: ['A. 堆雪人', 'B. 游泳', 'C. 摘果子', 'D. 赏花'], answer: 'A' },
-    { question: '人们穿着什么衣服？', options: ['A. 棉袄', 'B. 短袖', 'C. 裙子', 'D. 短裤'], answer: 'A' },
-    { question: '雪人的鼻子是用什么做的？', options: ['A. 胡萝卜', 'B. 石头', 'C. 树枝', 'D. 糖果'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 冬天', 'B. 春天', 'C. 夏天', 'D. 秋天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 雪地里', 'B. 花园', 'C. 河边', 'D. 泳池'], answer: 'A' },
+    { question: '谁在雪地里？', options: ['A. 小朋友们', 'B. 大人', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 堆雪人打雪仗', 'B. 游泳', 'C. 赏花', 'D. 摘果子'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 堆了一个大雪人', 'B. 天气变热', 'C. 下雨了', 'D. 天黑了'], answer: 'A' }
   ]
 };
 
 const weatherQuestions = {
   rainy: [
-    { question: '天气怎么样？', options: ['A. 下雨', 'B. 晴天', 'C. 下雪', 'D. 刮风'], answer: 'A' },
-    { question: '下雨需要带什么？', options: ['A. 雨伞', 'B. 帽子', 'C. 围巾', 'D. 手套'], answer: 'A' },
-    { question: '雨后会出现什么？', options: ['A. 彩虹', 'B. 星星', 'C. 月亮', 'D. 太阳'], answer: 'A' },
-    { question: '雨点像什么？', options: ['A. 珍珠', 'B. 雪花', 'C. 树叶', 'D. 花瓣'], answer: 'A' },
-    { question: '下雨天心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 下雨天', 'B. 晴天', 'C. 下雪天', 'D. 刮风天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 路上', 'B. 家里', 'C. 学校', 'D. 公园'], answer: 'A' },
+    { question: '人们在做什么？', options: ['A. 撑伞走路', 'B. 跑步', 'C. 游泳', 'D. 睡觉'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 下雨了', 'B. 出太阳', 'C. 下雪了', 'D. 刮大风'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 雨后出现彩虹', 'B. 天气变冷', 'C. 天气变热', 'D. 起雾了'], answer: 'A' }
   ],
   snowy: [
-    { question: '天气怎么样？', options: ['A. 下雪', 'B. 晴天', 'C. 下雨', 'D. 刮风'], answer: 'A' },
-    { question: '雪是什么颜色？', options: ['A. 白色', 'B. 红色', 'C. 黄色', 'D. 绿色'], answer: 'A' },
-    { question: '下雪天可以做什么？', options: ['A. 堆雪人', 'B. 游泳', 'C. 赏花', 'D. 野餐'], answer: 'A' },
-    { question: '雪人是什么做的？', options: ['A. 雪', 'B. 泥土', 'C. 沙子', 'D. 石头'], answer: 'A' },
-    { question: '下雪天人们穿什么？', options: ['A. 棉袄', 'B. 短袖', 'C. 裙子', 'D. 短裤'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 下雪天', 'B. 晴天', 'C. 下雨天', 'D. 刮风天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 院子里', 'B. 家里', 'C. 学校', 'D. 公园'], answer: 'A' },
+    { question: '小朋友在做什么？', options: ['A. 堆雪人', 'B. 游泳', 'C. 赏花', 'D. 野餐'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 下雪了', 'B. 出太阳', 'C. 下雨了', 'D. 刮大风'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 堆了一个大雪人', 'B. 天气变暖', 'C. 天气变冷', 'D. 起雾了'], answer: 'A' }
+  ]
+};
+
+const sceneryQuestions = {
+  park: [
+    { question: '故事发生在什么季节？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 公园', 'B. 学校', 'C. 家里', 'D. 商店'], answer: 'A' },
+    { question: '公园里有什么？', options: ['A. 花朵和大树', 'B. 书本和笔', 'C. 雨伞和雨衣', 'D. 雪人'], answer: 'A' },
+    { question: '小朋友们在做什么？', options: ['A. 在公园里玩耍', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '他们的心情怎么样？', options: ['A. 很开心', 'B. 很难过', 'C. 很生气', 'D. 很无聊'], answer: 'A' }
+  ],
+  springOuting: [
+    { question: '故事发生在什么时候？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 郊外', 'B. 教室', 'C. 家里', 'D. 商店'], answer: 'A' },
+    { question: '谁在郊外？', options: ['A. 老师和同学们', 'B. 大人', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 同学们在春游', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家玩得很开心', 'B. 天气变冷', 'C. 下雨了', 'D. 天黑了'], answer: 'A' }
+  ],
+  countryside: [
+    { question: '故事发生在什么时候？', options: ['A. 周末', 'B. 周一', 'C. 周三', 'D. 周五'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 郊外', 'B. 城市', 'C. 学校', 'D. 商店'], answer: 'A' },
+    { question: '谁在郊外？', options: ['A. 小朋友和爸爸妈妈', 'B. 大人', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 在郊外玩耍野餐', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家很愉快', 'B. 天气变冷', 'C. 下雨了', 'D. 天黑了'], answer: 'A' }
+  ],
+  autumnLeaves: [
+    { question: '故事发生在什么时候？', options: ['A. 秋天', 'B. 春天', 'C. 夏天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 树林里', 'B. 教室', 'C. 家里', 'D. 商店'], answer: 'A' },
+    { question: '谁在树林里？', options: ['A. 小朋友们', 'B. 大人', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 捡落叶做书签', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 做了美丽的书签', 'B. 天气变冷', 'C. 下雨了', 'D. 天黑了'], answer: 'A' }
   ]
 };
 
 const lifeQuestions = {
   helpMom: [
-    { question: '小朋友在做什么？', options: ['A. 帮妈妈做家务', 'B. 玩耍', 'C. 睡觉', 'D. 学习'], answer: 'A' },
-    { question: '妈妈会说什么？', options: ['A. 谢谢你', 'B. 快走开', 'C. 别捣乱', 'D. 去玩吧'], answer: 'A' },
-    { question: '做家务是好孩子吗？', options: ['A. 是', 'B. 不是', 'C. 不知道', 'D. 不一定'], answer: 'A' },
-    { question: '小明的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '这是什么精神？', options: ['A. 勤劳', 'B. 懒惰', 'C. 调皮', 'D. 自私'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 周末', 'B. 周一', 'C. 周三', 'D. 周五'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 家里', 'B. 学校', 'C. 公园', 'D. 商店'], answer: 'A' },
+    { question: '谁在做家务？', options: ['A. 小朋友和妈妈', 'B. 爸爸', 'C. 爷爷', 'D. 奶奶'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小朋友帮妈妈做家务', 'B. 玩耍', 'C. 睡觉', 'D. 学习'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 妈妈夸孩子懂事', 'B. 妈妈生气', 'C. 妈妈难过', 'D. 妈妈无聊'], answer: 'A' }
   ],
   helpGrandparents: [
-    { question: '小朋友在做什么？', options: ['A. 给爷爷奶奶捶背', 'B. 玩耍', 'C. 睡觉', 'D. 学习'], answer: 'A' },
-    { question: '爷爷奶奶会说什么？', options: ['A. 真孝顺', 'B. 别捣乱', 'C. 去玩吧', 'D. 走开'], answer: 'A' },
-    { question: '这是什么精神？', options: ['A. 孝顺', 'B. 懒惰', 'C. 调皮', 'D. 自私'], answer: 'A' },
-    { question: '小红的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '家人之间要怎么样？', options: ['A. 互相关爱', 'B. 互相争吵', 'C. 互相不理', 'D. 互相指责'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 晚上', 'B. 早上', 'C. 中午', 'D. 下午'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 家里', 'B. 学校', 'C. 公园', 'D. 商店'], answer: 'A' },
+    { question: '谁在捶背？', options: ['A. 小朋友给爷爷奶奶', 'B. 妈妈', 'C. 爸爸', 'D. 叔叔'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小朋友给爷爷奶奶捶背', 'B. 玩耍', 'C. 睡觉', 'D. 学习'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 爷爷奶奶很开心', 'B. 爷爷奶奶生气', 'C. 爷爷奶奶难过', 'D. 爷爷奶奶无聊'], answer: 'A' }
   ],
   helpClassmate: [
-    { question: '同学遇到了什么困难？', options: ['A. 搬不动书', 'B. 找不到路', 'C. 没带书包', 'D. 忘带课本'], answer: 'A' },
-    { question: '小明是怎么做的？', options: ['A. 主动帮忙', 'B. 走开', 'C. 嘲笑他', 'D. 告诉老师'], answer: 'A' },
-    { question: '这是什么精神？', options: ['A. 助人为乐', 'B. 自私自利', 'C. 调皮捣蛋', 'D. 玩耍'], answer: 'A' },
-    { question: '同学会说什么？', options: ['A. 谢谢你', 'B. 不用你管', 'C. 真讨厌', 'D. 走开'], answer: 'A' },
-    { question: '他们的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 放学后', 'B. 上课', 'C. 午休', 'D. 课间'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 学校', 'B. 家里', 'C. 公园', 'D. 商店'], answer: 'A' },
+    { question: '谁在帮忙？', options: ['A. 小明帮同学', 'B. 老师', 'C. 妈妈', 'D. 爸爸'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小明帮同学搬书', 'B. 玩耍', 'C. 睡觉', 'D. 学习'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 同学很感谢', 'B. 同学生气', 'C. 同学难过', 'D. 同学无聊'], answer: 'A' }
   ],
   schoolLife: [
-    { question: '这是在哪里？', options: ['A. 学校', 'B. 家里', 'C. 公园', 'D. 商店'], answer: 'A' },
-    { question: '同学们在做什么？', options: ['A. 玩耍', 'B. 睡觉', 'C. 吃饭', 'D. 学习'], answer: 'A' },
-    { question: '同学们的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '课间可以做什么？', options: ['A. 玩游戏', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
-    { question: '同学之间要怎么样？', options: ['A. 互相帮助', 'B. 互相争吵', 'C. 互相不理', 'D. 互相打架'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 课间', 'B. 上课', 'C. 放学', 'D. 午休'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 学校', 'B. 家里', 'C. 公园', 'D. 商店'], answer: 'A' },
+    { question: '谁在学校里？', options: ['A. 同学们', 'B. 老师', 'C. 家长', 'D. 校长'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 同学们在玩游戏', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家很开心', 'B. 同学生气', 'C. 同学难过', 'D. 同学无聊'], answer: 'A' }
   ],
   sportsDay: [
-    { question: '这是在哪里？', options: ['A. 操场', 'B. 教室', 'C. 家里', 'D. 公园'], answer: 'A' },
-    { question: '同学们在做什么？', options: ['A. 参加运动会', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
-    { question: '同学们的心情怎么样？', options: ['A. 激动', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '运动会有什么项目？', options: ['A. 跑步', 'B. 睡觉', 'C. 吃饭', 'D. 上课'], answer: 'A' },
-    { question: '大家为什么加油？', options: ['A. 为班级争光', 'B. 没事干', 'C. 好玩', 'D. 吵闹'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 运动会', 'B. 上课', 'C. 放学', 'D. 午休'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 操场', 'B. 教室', 'C. 家里', 'D. 公园'], answer: 'A' },
+    { question: '谁在操场上？', options: ['A. 运动员和同学', 'B. 老师', 'C. 家长', 'D. 校长'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 参加运动会比赛', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家很激动', 'B. 同学失望', 'C. 同学难过', 'D. 同学无聊'], answer: 'A' }
   ],
   goodHabits: [
-    { question: '小明在做什么？', options: ['A. 节约用水', 'B. 浪费水', 'C. 玩耍', 'D. 睡觉'], answer: 'A' },
-    { question: '为什么要节约用水？', options: ['A. 水资源宝贵', 'B. 水很多', 'C. 好玩', 'D. 不知道'], answer: 'A' },
-    { question: '这是什么习惯？', options: ['A. 好习惯', 'B. 坏习惯', 'C. 不知道', 'D. 不好不坏'], answer: 'A' },
-    { question: '小明的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '我们应该怎么做？', options: ['A. 节约用水', 'B. 浪费水', 'C. 不管它', 'D. 不知道'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 洗手后', 'B. 吃饭前', 'C. 睡觉前', 'D. 放学后'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 家里', 'B. 学校', 'C. 公园', 'D. 商店'], answer: 'A' },
+    { question: '谁在节约用水？', options: ['A. 小明', 'B. 妈妈', 'C. 爸爸', 'D. 爷爷'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小明拧紧水龙头', 'B. 浪费水', 'C. 玩耍', 'D. 睡觉'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 妈妈夸小明懂事', 'B. 妈妈生气', 'C. 妈妈难过', 'D. 妈妈无聊'], answer: 'A' }
   ],
   protectNature: [
-    { question: '小红在做什么？', options: ['A. 浇花', 'B. 摘花', 'C. 玩耍', 'D. 睡觉'], answer: 'A' },
-    { question: '花草树木有什么作用？', options: ['A. 净化空气', 'B. 没用', 'C. 挡路', 'D. 不好看'], answer: 'A' },
-    { question: '我们应该怎么样？', options: ['A. 爱护花草', 'B. 破坏花草', 'C. 不管它', 'D. 摘花'], answer: 'A' },
-    { question: '小红的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '这是什么行为？', options: ['A. 环保', 'B. 破坏', 'C. 无聊', 'D. 调皮'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 早上', 'B. 中午', 'C. 下午', 'D. 晚上'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 公园', 'B. 学校', 'C. 家里', 'D. 商店'], answer: 'A' },
+    { question: '谁在浇花？', options: ['A. 小红', 'B. 妈妈', 'C. 爸爸', 'D. 爷爷'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小红给花浇水', 'B. 摘花', 'C. 玩耍', 'D. 睡觉'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 花儿长得更好', 'B. 花儿枯萎', 'C. 花儿凋谢', 'D. 花儿死亡'], answer: 'A' }
   ],
   busPolite: [
-    { question: '小明在做什么？', options: ['A. 让座', 'B. 抢座', 'C. 睡觉', 'D. 玩耍'], answer: 'A' },
-    { question: '给谁让座？', options: ['A. 老奶奶', 'B. 小朋友', 'C. 叔叔', 'D. 阿姨'], answer: 'A' },
-    { question: '这是什么行为？', options: ['A. 有礼貌', 'B. 没礼貌', 'C. 调皮', 'D. 无聊'], answer: 'A' },
-    { question: '老奶奶会说什么？', options: ['A. 谢谢你', 'B. 不用你让', 'C. 走开', 'D. 真讨厌'], answer: 'A' },
-    { question: '小明的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 坐公交车时', 'B. 上课时', 'C. 睡觉时', 'D. 吃饭时'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 公交车上', 'B. 家里', 'C. 学校', 'D. 公园'], answer: 'A' },
+    { question: '谁在让座？', options: ['A. 小明', 'B. 妈妈', 'C. 爸爸', 'D. 爷爷'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小明给老奶奶让座', 'B. 抢座', 'C. 睡觉', 'D. 玩耍'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 老奶奶很感谢', 'B. 老奶奶生气', 'C. 老奶奶难过', 'D. 老奶奶无聊'], answer: 'A' }
   ],
   holiday: [
-    { question: '小朋友在做什么？', options: ['A. 庆祝节日', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
-    { question: '这是什么节日？', options: ['A. 儿童节', 'B. 春节', 'C. 中秋节', 'D. 端午节'], answer: 'A' },
-    { question: '同学们的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '节日可以做什么？', options: ['A. 表演节目', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
-    { question: '节日有什么装饰？', options: ['A. 气球', 'B. 书本', 'C. 桌子', 'D. 椅子'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 儿童节', 'B. 春节', 'C. 中秋节', 'D. 端午节'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 教室', 'B. 家里', 'C. 公园', 'D. 商店'], answer: 'A' },
+    { question: '谁在庆祝节日？', options: ['A. 同学们', 'B. 老师', 'C. 家长', 'D. 校长'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 同学们庆祝儿童节', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 大家很开心', 'B. 同学生气', 'C. 同学难过', 'D. 同学无聊'], answer: 'A' }
   ],
   weekend: [
-    { question: '小朋友在哪里？', options: ['A. 公园', 'B. 学校', 'C. 家里', 'D. 商店'], answer: 'A' },
-    { question: '他们在做什么？', options: ['A. 野餐', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
-    { question: '和谁一起？', options: ['A. 爸爸妈妈', 'B. 老师同学', 'C. 爷爷奶奶', 'D. 陌生人'], answer: 'A' },
-    { question: '心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-    { question: '周末可以做什么？', options: ['A. 出去玩', 'B. 上课', 'C. 睡觉', 'D. 做作业'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 周末', 'B. 周一', 'C. 周三', 'D. 周五'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 公园', 'B. 学校', 'C. 家里', 'D. 商店'], answer: 'A' },
+    { question: '谁在公园？', options: ['A. 小朋友和爸爸妈妈', 'B. 老师', 'C. 同学', 'D. 陌生人'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 在公园野餐', 'B. 上课', 'C. 睡觉', 'D. 吃饭'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 一家人很开心', 'B. 家人失望', 'C. 家人难过', 'D. 家人无聊'], answer: 'A' }
   ]
 };
 
 const animalQuestions = {
   rabbit: [
-    { question: '这是什么动物？', options: ['A. 小白兔', 'B. 小猫', 'C. 小狗', 'D. 小鸡'], answer: 'A' },
-    { question: '小白兔在做什么？', options: ['A. 采蘑菇', 'B. 钓鱼', 'C. 捉虫子', 'D. 筑巢'], answer: 'A' },
-    { question: '小白兔在哪里？', options: ['A. 森林', 'B. 河边', 'C. 草地', 'D. 树上'], answer: 'A' },
-    { question: '蘑菇是什么颜色？', options: ['A. 白色', 'B. 红色', 'C. 黄色', 'D. 绿色'], answer: 'A' },
-    { question: '小白兔的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 早上', 'B. 中午', 'C. 下午', 'D. 晚上'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 森林', 'B. 河边', 'C. 草地', 'D. 树上'], answer: 'A' },
+    { question: '谁在森林里？', options: ['A. 小白兔', 'B. 小猫', 'C. 小狗', 'D. 小鸡'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小白兔采蘑菇', 'B. 钓鱼', 'C. 捉虫子', 'D. 筑巢'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 采了满满一篮蘑菇', 'B. 没采到蘑菇', 'C. 迷路了', 'D. 累了'], answer: 'A' }
   ],
   cat: [
-    { question: '这是什么动物？', options: ['A. 小猫', 'B. 小白兔', 'C. 小狗', 'D. 小鸡'], answer: 'A' },
-    { question: '小猫在做什么？', options: ['A. 钓鱼', 'B. 采蘑菇', 'C. 捉虫子', 'D. 筑巢'], answer: 'A' },
-    { question: '小猫在哪里？', options: ['A. 河边', 'B. 森林', 'C. 草地', 'D. 树上'], answer: 'A' },
-    { question: '小猫钓到鱼了吗？', options: ['A. 钓到了', 'B. 没钓到', 'C. 不知道', 'D. 不想钓'], answer: 'A' },
-    { question: '这个故事告诉我们什么？', options: ['A. 要有耐心', 'B. 要着急', 'C. 要贪玩', 'D. 要放弃'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 下午', 'B. 早上', 'C. 中午', 'D. 晚上'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 河边', 'B. 森林', 'C. 草地', 'D. 树上'], answer: 'A' },
+    { question: '谁在河边？', options: ['A. 小猫', 'B. 小白兔', 'C. 小狗', 'D. 小鸡'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小猫在钓鱼', 'B. 采蘑菇', 'C. 捉虫子', 'D. 筑巢'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 钓到了一条大鱼', 'B. 没钓到鱼', 'C. 鱼跑了', 'D. 鱼竿断了'], answer: 'A' }
   ],
   chick: [
-    { question: '这是什么动物？', options: ['A. 小鸡', 'B. 小白兔', 'C. 小猫', 'D. 小狗'], answer: 'A' },
-    { question: '小鸡在做什么？', options: ['A. 捉虫子', 'B. 钓鱼', 'C. 采蘑菇', 'D. 筑巢'], answer: 'A' },
-    { question: '小鸡在哪里？', options: ['A. 草地', 'B. 河边', 'C. 森林', 'D. 树上'], answer: 'A' },
-    { question: '谁陪着小鸡？', options: ['A. 鸡妈妈', 'B. 猫妈妈', 'C. 狗妈妈', 'D. 兔妈妈'], answer: 'A' },
-    { question: '小鸡的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 早上', 'B. 中午', 'C. 下午', 'D. 晚上'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 草地', 'B. 河边', 'C. 森林', 'D. 树上'], answer: 'A' },
+    { question: '谁在草地上？', options: ['A. 小鸡和鸡妈妈', 'B. 小白兔', 'C. 小猫', 'D. 小狗'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小鸡在捉虫子', 'B. 钓鱼', 'C. 采蘑菇', 'D. 筑巢'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 捉到了很多虫子', 'B. 没捉到虫子', 'C. 迷路了', 'D. 累了'], answer: 'A' }
   ],
   bird: [
-    { question: '这是什么动物？', options: ['A. 小鸟', 'B. 小白兔', 'C. 小猫', 'D. 小鸡'], answer: 'A' },
-    { question: '小鸟在做什么？', options: ['A. 筑巢', 'B. 钓鱼', 'C. 捉虫子', 'D. 采蘑菇'], answer: 'A' },
-    { question: '小鸟在哪里？', options: ['A. 树上', 'B. 河边', 'C. 草地', 'D. 森林'], answer: 'A' },
-    { question: '鸟巢是什么做的？', options: ['A. 树枝', 'B. 石头', 'C. 泥土', 'D. 沙子'], answer: 'A' },
-    { question: '小鸟的心情怎么样？', options: ['A. 开心', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' }
+    { question: '故事发生在什么时候？', options: ['A. 春天', 'B. 夏天', 'C. 秋天', 'D. 冬天'], answer: 'A' },
+    { question: '故事发生在哪里？', options: ['A. 树上', 'B. 河边', 'C. 草地', 'D. 森林'], answer: 'A' },
+    { question: '谁在树上？', options: ['A. 小鸟', 'B. 小白兔', 'C. 小猫', 'D. 小鸡'], answer: 'A' },
+    { question: '发生了什么事情？', options: ['A. 小鸟在筑巢', 'B. 钓鱼', 'C. 捉虫子', 'D. 采蘑菇'], answer: 'A' },
+    { question: '结果怎么样？', options: ['A. 筑好了温暖的鸟巢', 'B. 没筑好巢', 'C. 鸟巢掉了', 'D. 累了'], answer: 'A' }
   ]
 };
 
@@ -162,6 +193,13 @@ const getTopicQuestions = (topic) => {
   if (title.includes('冬天')) return seasonQuestions.winter;
   if (title.includes('下雨')) return weatherQuestions.rainy;
   if (title.includes('下雪')) return weatherQuestions.snowy;
+  
+  if (subCategory === 'scenery') {
+    if (title.includes('公园')) return sceneryQuestions.park;
+    if (title.includes('春游')) return sceneryQuestions.springOuting;
+    if (title.includes('郊外')) return sceneryQuestions.countryside;
+    if (title.includes('落叶')) return sceneryQuestions.autumnLeaves;
+  }
   
   if (subCategory === 'life') {
     if (title.includes('妈妈')) return lifeQuestions.helpMom;
@@ -189,32 +227,41 @@ const getTopicQuestions = (topic) => {
 };
 
 const distractors = {
-  seasons: ['春', '夏', '秋', '冬'],
-  adjectives: ['美丽', '难看', '枯萎', '凋谢', '开心', '难过', '生气', '无聊', '快乐', '美好', '糟糕', '温暖', '炎热', '凉爽', '寒冷', '金黄', '雪白', '翠绿', '火红', '可爱', '勤劳', '有趣', '幸福'],
-  verbs: ['飞舞', '飘落', '奔跑', '玩耍', '游泳', '戏水', '帮助', '搬', '拿', '找', '采', '钓', '捉', '筑', '堆', '浇', '扫', '擦', '唱', '笑'],
-  nouns: ['蝴蝶', '小鸟', '雪花', '雨滴', '花朵', '花园', '泳池', '房间', '教室', '草地', '森林', '河边', '雪人', '棉袄', '雨伞', '彩虹', '西瓜', '萤火虫', '蘑菇', '鱼', '虫子', '鸟巢', '树枝', '篮子'],
-  adverbs: ['翩翩', '慢慢', '静静', '悄悄', '开心', '伤心', '生气', '难过', '认真', '仔细', '耐心', '快乐', '幸福']
+  seasons: ['春天', '夏天', '秋天', '冬天'],
+  adjectives: ['美丽', '漂亮', '可爱', '勤劳', '勇敢', '善良', '快乐', '开心', '幸福', '美好', '温暖', '炎热', '凉爽', '寒冷', '金黄', '雪白', '翠绿', '火红', '清新', '宁静', '热闹', '安静', '清澈', '五颜六色', '淡淡', '红红', '黄黄', '漂亮的'],
+  verbs: ['飞舞', '飘落', '奔跑', '玩耍', '游泳', '戏水', '帮助', '采摘', '钓鱼', '捉虫', '筑巢', '堆雪', '浇水', '打扫', '唱歌', '欢笑', '欣赏', '庆祝', '野餐', '赏花', '流淌', '倒映', '蹦蹦跳跳', '弯下腰', '捡起', '夹在', '做成'],
+  nouns: ['蝴蝶', '小鸟', '雪花', '雨滴', '花朵', '花园', '泳池', '教室', '草地', '森林', '河边', '雪人', '雨伞', '彩虹', '西瓜', '萤火虫', '蘑菇', '稻穗', '树叶', '树枝', '郊外', '小兔子', '小河', '小花', '清香', '蓝天', '白云', '风景', '落叶', '公园', '枫叶', '银杏叶', '扇子', '小伞', '书签', '季节'],
+  adverbs: ['翩翩', '慢慢', '静静', '悄悄', '认真', '仔细', '耐心', '开心', '快乐', '幸福', '自由', '欢快', '辛勤', '开心极了']
 };
 
 const generateFillBlankFromSample = (sample) => {
   const allSentences = sample.split('。').filter(s => s.trim());
   const selectedSentences = allSentences.length > 5 
-    ? allSentences.sort(() => Math.random() - 0.5).slice(0, 5)
+    ? allSentences.slice(0, 5)
     : [...allSentences];
   
   const fillBlankList = [];
   const usedWords = new Set();
   
+  const allDictionary = [
+    ...distractors.adjectives,
+    ...distractors.verbs,
+    ...distractors.nouns,
+    ...distractors.adverbs,
+    ...distractors.seasons
+  ];
+  
   for (const sentence of selectedSentences) {
-    const matches = sentence.match(/([\u4e00-\u9fa5]{2,4})/g);
-    if (!matches || matches.length < 2) continue;
+    if (sentence.length < 15) continue;
     
-    const candidates = matches.filter(word => {
-      if (usedWords.has(word)) return false;
-      if (word.length < 2) return false;
-      if (['的', '了', '是', '在', '有', '和', '我', '你', '他', '她', '它', '们', '都', '很', '不', '这', '那', '什么', '怎么', '为什么', '一个', '一起', '一样', '一会儿', '一些', '所有', '他们', '我们', '你们', '可以', '不能', '应该', '不要', '没有', '已经', '正在', '就要', '会', '不会', '能', '不能'].includes(word)) return false;
-      return true;
-    });
+    const candidates = [];
+    
+    for (const word of allDictionary) {
+      if (usedWords.has(word)) continue;
+      if (sentence.includes(word)) {
+        candidates.push(word);
+      }
+    }
     
     if (candidates.length === 0) continue;
     
@@ -224,21 +271,20 @@ const generateFillBlankFromSample = (sample) => {
     
     let distractorList = [];
     if (distractors.adjectives.includes(targetWord)) {
-      distractorList = [...distractors.adjectives];
+      distractorList = distractors.adjectives.filter(d => d !== targetWord);
     } else if (distractors.verbs.includes(targetWord)) {
-      distractorList = [...distractors.verbs];
+      distractorList = distractors.verbs.filter(d => d !== targetWord);
     } else if (distractors.nouns.includes(targetWord)) {
-      distractorList = [...distractors.nouns];
+      distractorList = distractors.nouns.filter(d => d !== targetWord);
     } else if (distractors.adverbs.includes(targetWord)) {
-      distractorList = [...distractors.adverbs];
+      distractorList = distractors.adverbs.filter(d => d !== targetWord);
     } else if (distractors.seasons.includes(targetWord)) {
-      distractorList = [...distractors.seasons];
+      distractorList = distractors.seasons.filter(d => d !== targetWord);
     } else {
-      distractorList = [...distractors.adjectives, ...distractors.verbs, ...distractors.nouns];
+      distractorList = [...distractors.adjectives, ...distractors.verbs, ...distractors.nouns].filter(d => d !== targetWord);
     }
     
-    const filteredDistractors = distractorList.filter(d => d !== targetWord && d.length >= 2);
-    const shuffledDistractors = filteredDistractors.sort(() => Math.random() - 0.5);
+    const shuffledDistractors = distractorList.sort(() => Math.random() - 0.5);
     const selectedDistractors = shuffledDistractors.slice(0, 3);
     
     const options = [targetWord, ...selectedDistractors].sort(() => Math.random() - 0.5);
@@ -246,24 +292,39 @@ const generateFillBlankFromSample = (sample) => {
     const answerIndex = options.indexOf(targetWord);
     const answer = ['A', 'B', 'C', 'D'][answerIndex];
     
+    const blankSentence = sentence.replace(targetWord, '____') + '。';
+    
     fillBlankList.push({
-      sentence: sentence.replace(targetWord, '____'),
+      sentence: blankSentence,
       blankAnswer: targetWord,
       options: options.map((opt, idx) => `${['A', 'B', 'C', 'D'][idx]}. ${opt}`),
       answer: answer
     });
   }
   
+  const defaultSentences = [
+    '这里的景色真____！',
+    '小朋友们玩得很____。',
+    '秋天的落叶真____。',
+    '蝴蝶在空中____。',
+    '这个季节真____！'
+  ];
+  
+  const defaultWords = ['美丽', '开心', '金黄', '飞舞', '美好'];
+  
   while (fillBlankList.length < 5) {
-    const defaultWords = ['开心', '快乐', '美好', '美丽', '温暖'];
-    const word = defaultWords[fillBlankList.length];
-    const filteredDistractors = distractors.adjectives.filter(d => d !== word);
+    const index = fillBlankList.length;
+    const word = defaultWords[index];
+    const sentence = defaultSentences[index];
+    
+    const filteredDistractors = distractors.adjectives.filter(d => d !== word && d.length >= 2);
     const shuffledDistractors = filteredDistractors.sort(() => Math.random() - 0.5);
     const selectedDistractors = shuffledDistractors.slice(0, 3);
     const options = [word, ...selectedDistractors].sort(() => Math.random() - 0.5);
     const answerIndex = options.indexOf(word);
+    
     fillBlankList.push({
-      sentence: '这里真____！',
+      sentence: sentence,
       blankAnswer: word,
       options: options.map((opt, idx) => `${['A', 'B', 'C', 'D'][idx]}. ${opt}`),
       answer: ['A', 'B', 'C', 'D'][answerIndex]
@@ -274,155 +335,7 @@ const generateFillBlankFromSample = (sample) => {
 };
 
 const getTopicFillBlank = (topic) => {
-  const title = topic.title;
-  
-  if (title.includes('春天')) {
-    return [
-      { sentence: '____天来了，花儿都开了。', blankAnswer: '春', options: ['A. 春', 'B. 夏', 'C. 秋', 'D. 冬'], answer: 'A' },
-      { sentence: '花园里有____的花朵。', blankAnswer: '美丽', options: ['A. 美丽', 'B. 难看', 'C. 枯萎', 'D. 凋谢'], answer: 'A' },
-      { sentence: '蝴蝶在花丛中____起舞。', blankAnswer: '翩翩', options: ['A. 翩翩', 'B. 慢慢', 'C. 静静', 'D. 悄悄'], answer: 'A' },
-      { sentence: '小朋友们____地赏花。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '春天真是____的季节！', blankAnswer: '美好', options: ['A. 糟糕', 'B. 美好', 'C. 无聊', 'D. 难过'], answer: 'B' }
-    ];
-  }
-  
-  if (title.includes('夏天')) {
-    return [
-      { sentence: '____天来了，太阳火辣辣的。', blankAnswer: '夏', options: ['A. 春', 'B. 夏', 'C. 秋', 'D. 冬'], answer: 'B' },
-      { sentence: '小朋友们在____里开心玩耍。', blankAnswer: '泳池', options: ['A. 泳池', 'B. 教室', 'C. 花园', 'D. 房间'], answer: 'A' },
-      { sentence: '天气____，大家都去游泳。', blankAnswer: '很热', options: ['A. 很热', 'B. 很冷', 'C. 凉爽', 'D. 温暖'], answer: 'A' },
-      { sentence: '小朋友们____地戏水。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '夏天真是____的季节！', blankAnswer: '快乐', options: ['A. 糟糕', 'B. 快乐', 'C. 无聊', 'D. 难过'], answer: 'B' }
-    ];
-  }
-  
-  if (title.includes('秋天')) {
-    return [
-      { sentence: '____天来了，树叶变黄了。', blankAnswer: '秋', options: ['A. 春', 'B. 夏', 'C. 秋', 'D. 冬'], answer: 'C' },
-      { sentence: '树叶从树上____下来。', blankAnswer: '飘落', options: ['A. 飘落', 'B. 长出来', 'C. 不动', 'D. 消失'], answer: 'A' },
-      { sentence: '落叶像____一样飞舞。', blankAnswer: '蝴蝶', options: ['A. 蝴蝶', 'B. 小鸟', 'C. 雪花', 'D. 雨滴'], answer: 'A' },
-      { sentence: '秋天是____的季节。', blankAnswer: '金黄', options: ['A. 金黄', 'B. 翠绿', 'C. 雪白', 'D. 火红'], answer: 'A' },
-      { sentence: '秋天真是____的季节！', blankAnswer: '丰收', options: ['A. 丰收', 'B. 贫瘠', 'C. 无聊', 'D. 寒冷'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('冬天')) {
-    return [
-      { sentence: '____天来了，北风呼呼吹。', blankAnswer: '冬', options: ['A. 春', 'B. 夏', 'C. 秋', 'D. 冬'], answer: 'D' },
-      { sentence: '天空飘起了____花。', blankAnswer: '雪', options: ['A. 雪', 'B. 雨', 'C. 霜', 'D. 雾'], answer: 'A' },
-      { sentence: '小朋友们在____雪人。', blankAnswer: '堆', options: ['A. 堆', 'B. 拆', 'C. 看', 'D. 画'], answer: 'A' },
-      { sentence: '冬天____的，要穿棉袄。', blankAnswer: '寒冷', options: ['A. 寒冷', 'B. 炎热', 'C. 温暖', 'D. 凉爽'], answer: 'A' },
-      { sentence: '冬天真是____的季节！', blankAnswer: '美丽', options: ['A. 美丽', 'B. 糟糕', 'C. 无聊', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('下雨')) {
-    return [
-      { sentence: '____啦啦，下雨了。', blankAnswer: '哗啦', options: ['A. 哗啦', 'B. 呼呼', 'C. 叮咚', 'D. 滴答'], answer: 'A' },
-      { sentence: '小朋友们撑着____伞。', blankAnswer: '雨', options: ['A. 雨', 'B. 阳', 'C. 遮', 'D. 大'], answer: 'A' },
-      { sentence: '雨点像____一样落下。', blankAnswer: '珍珠', options: ['A. 珍珠', 'B. 雪花', 'C. 树叶', 'D. 花瓣'], answer: 'A' },
-      { sentence: '雨后会出现____。', blankAnswer: '彩虹', options: ['A. 彩虹', 'B. 星星', 'C. 月亮', 'D. 太阳'], answer: 'A' },
-      { sentence: '下雨天____极了！', blankAnswer: '美', options: ['A. 美', 'B. 糟', 'C. 无聊', 'D. 烦'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('下雪')) {
-    return [
-      { sentence: '____雪啦，小朋友们真开心。', blankAnswer: '下', options: ['A. 下', 'B. 停', 'C. 化', 'D. 晴'], answer: 'A' },
-      { sentence: '小朋友们在____雪人。', blankAnswer: '堆', options: ['A. 堆', 'B. 拆', 'C. 看', 'D. 画'], answer: 'A' },
-      { sentence: '雪是____色的。', blankAnswer: '白', options: ['A. 白', 'B. 红', 'C. 黄', 'D. 绿'], answer: 'A' },
-      { sentence: '小朋友们____地打雪仗。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '下雪天真____！', blankAnswer: '好玩', options: ['A. 好玩', 'B. 无聊', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('公园')) {
-    return [
-      { sentence: '____天，小朋友们去公园。', blankAnswer: '星期', options: ['A. 星期', 'B. 今', 'C. 明', 'D. 昨'], answer: 'A' },
-      { sentence: '公园里有____的大树。', blankAnswer: '高高', options: ['A. 高高', 'B. 矮矮', 'C. 小小', 'D. 细细'], answer: 'A' },
-      { sentence: '公园里有美丽的____。', blankAnswer: '花朵', options: ['A. 花朵', 'B. 房子', 'C. 汽车', 'D. 书本'], answer: 'A' },
-      { sentence: '小朋友们____地玩耍。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '公园真是____的地方！', blankAnswer: '美丽', options: ['A. 美丽', 'B. 糟糕', 'C. 无聊', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('妈妈')) {
-    return [
-      { sentence: '小明帮____做家务。', blankAnswer: '妈妈', options: ['A. 妈妈', 'B. 爸爸', 'C. 老师', 'D. 同学'], answer: 'A' },
-      { sentence: '他____起抹布擦桌子。', blankAnswer: '拿', options: ['A. 拿', 'B. 放', 'C. 扔', 'D. 看'], answer: 'A' },
-      { sentence: '妈妈夸小明____。', blankAnswer: '懂事', options: ['A. 懂事', 'B. 调皮', 'C. 懒惰', 'D. 淘气'], answer: 'A' },
-      { sentence: '小明____极了。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '帮助妈妈真____！', blankAnswer: '快乐', options: ['A. 快乐', 'B. 无聊', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('爷爷') || title.includes('奶奶')) {
-    return [
-      { sentence: '小红给____捶背。', blankAnswer: '爷爷奶奶', options: ['A. 爷爷奶奶', 'B. 爸爸妈妈', 'C. 老师同学', 'D. 小朋友'], answer: 'A' },
-      { sentence: '她端来一杯____茶。', blankAnswer: '热', options: ['A. 热', 'B. 冷', 'C. 凉', 'D. 冰'], answer: 'A' },
-      { sentence: '爷爷奶奶夸小红____。', blankAnswer: '孝顺', options: ['A. 孝顺', 'B. 调皮', 'C. 懒惰', 'D. 淘气'], answer: 'A' },
-      { sentence: '一家人____极了。', blankAnswer: '幸福', options: ['A. 幸福', 'B. 难过', 'C. 生气', 'D. 无聊'], answer: 'A' },
-      { sentence: '关爱老人真____！', blankAnswer: '温暖', options: ['A. 温暖', 'B. 寒冷', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('同学')) {
-    return [
-      { sentence: '小明看到同学____不动书。', blankAnswer: '搬', options: ['A. 搬', 'B. 拿', 'C. 看', 'D. 扔'], answer: 'A' },
-      { sentence: '他主动过去____忙。', blankAnswer: '帮', options: ['A. 帮', 'B. 看', 'C. 走', 'D. 笑'], answer: 'A' },
-      { sentence: '同学说____你！', blankAnswer: '谢谢', options: ['A. 谢谢', 'B. 不用', 'C. 走开', 'D. 讨厌'], answer: 'A' },
-      { sentence: '他们____开心。', blankAnswer: '很', options: ['A. 不', 'B. 很', 'C. 没', 'D. 不'], answer: 'B' },
-      { sentence: '助人为乐真____！', blankAnswer: '快乐', options: ['A. 快乐', 'B. 无聊', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('兔')) {
-    return [
-      { sentence: '小____兔提着篮子去采蘑菇。', blankAnswer: '白', options: ['A. 白', 'B. 黑', 'C. 灰', 'D. 花'], answer: 'A' },
-      { sentence: '她来到____林里。', blankAnswer: '森', options: ['A. 森', 'B. 公', 'C. 草', 'D. 河'], answer: 'A' },
-      { sentence: '她挑选____又大又新鲜的蘑菇。', blankAnswer: '着', options: ['A. 着', 'B. 了', 'C. 过', 'D. 的'], answer: 'A' },
-      { sentence: '小白兔____极了。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '采蘑菇真____！', blankAnswer: '有趣', options: ['A. 有趣', 'B. 无聊', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('猫')) {
-    return [
-      { sentence: '小____在河边钓鱼。', blankAnswer: '猫', options: ['A. 猫', 'B. 狗', 'C. 兔', 'D. 鸡'], answer: 'A' },
-      { sentence: '一开始它很____急。', blankAnswer: '着', options: ['A. 着', 'B. 不', 'C. 没', 'D. 很'], answer: 'A' },
-      { sentence: '后来它____心等待。', blankAnswer: '耐', options: ['A. 耐', 'B. 着', 'C. 急', 'D. 开'], answer: 'A' },
-      { sentence: '终于钓到了一条____鱼。', blankAnswer: '大', options: ['A. 大', 'B. 小', 'C. 死', 'D. 坏'], answer: 'A' },
-      { sentence: '做事要有____心！', blankAnswer: '耐', options: ['A. 耐', 'B. 着', 'C. 急', 'D. 开'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('鸡')) {
-    return [
-      { sentence: '鸡____妈带着小鸡们来到草地。', blankAnswer: '妈', options: ['A. 妈', 'B. 爸', 'C. 爸', 'D. 奶'], answer: 'A' },
-      { sentence: '小鸡们叽叽____喳找虫子。', blankAnswer: '喳', options: ['A. 喳', 'B. 叫', 'C. 闹', 'D. 吵'], answer: 'A' },
-      { sentence: '它们____到了很多虫子。', blankAnswer: '找', options: ['A. 找', 'B. 丢', 'C. 吃', 'D. 看'], answer: 'A' },
-      { sentence: '小鸡们____极了。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '小鸡捉虫真____！', blankAnswer: '可爱', options: ['A. 可爱', 'B. 无聊', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  if (title.includes('鸟')) {
-    return [
-      { sentence: '小____们在树上筑巢。', blankAnswer: '鸟', options: ['A. 鸟', 'B. 猫', 'C. 兔', 'D. 鸡'], answer: 'A' },
-      { sentence: '它们用____枝和草叶搭窝。', blankAnswer: '树', options: ['A. 树', 'B. 花', 'C. 草', 'D. 叶'], answer: 'A' },
-      { sentence: '鸟巢是____们温暖的家。', blankAnswer: '它', options: ['A. 它', 'B. 我', 'C. 你', 'D. 他'], answer: 'A' },
-      { sentence: '小鸟们____极了。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-      { sentence: '小鸟筑巢真____！', blankAnswer: '勤劳', options: ['A. 勤劳', 'B. 懒惰', 'C. 糟糕', 'D. 难过'], answer: 'A' }
-    ];
-  }
-  
-  return [
-    { sentence: '____天来了，天气很好。', blankAnswer: '今', options: ['A. 昨', 'B. 今', 'C. 明', 'D. 后'], answer: 'B' },
-    { sentence: '小朋友们____到这里。', blankAnswer: '来', options: ['A. 来', 'B. 去', 'C. 回', 'D. 离'], answer: 'A' },
-    { sentence: '他们____地玩耍。', blankAnswer: '开心', options: ['A. 伤心', 'B. 开心', 'C. 生气', 'D. 难过'], answer: 'B' },
-    { sentence: '大家都很____。', blankAnswer: '快乐', options: ['A. 难过', 'B. 快乐', 'C. 生气', 'D. 无聊'], answer: 'B' },
-    { sentence: '这真是____的一天！', blankAnswer: '美好', options: ['A. 糟糕', 'B. 美好', 'C. 无聊', 'D. 难过'], answer: 'B' }
-  ];
+  return [];
 };
 
 const generateTopicData = (topic) => {
@@ -444,13 +357,85 @@ const generateTopicData = (topic) => {
     feel: '根据图片感受'
   };
   
-  const sensesQuestions = [
-    { question: '看到了什么？', options: ['A. ' + topic.title, 'B. 美丽的风景', 'C. 有趣的事情', 'D. 可爱的动物'], answer: 'A' },
-    { question: '听到了什么？', options: ['A. 欢笑声', 'B. 风声', 'C. 雨声', 'D. 歌声'], answer: 'A' },
-    { question: '闻到了什么？', options: ['A. 清新的空气', 'B. 花香', 'C. 饭菜香', 'D. 无'], answer: 'A' },
-    { question: '尝到了什么？', options: ['A. 甜甜的', 'B. 酸酸的', 'C. 咸咸的', 'D. 无'], answer: 'D' },
-    { question: '感觉到什么？', options: ['A. 开心', 'B. 温暖', 'C. 快乐', 'D. 幸福'], answer: 'A' }
-  ];
+  const getSensesQuestions = (topic) => {
+    const title = topic.title;
+    
+    if (title.includes('春天')) {
+      return [
+        { question: '看到了什么？', options: ['A. 五颜六色的花朵', 'B. 金黄的落叶', 'C. 白白的雪花', 'D. 红红的太阳'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 小鸟的歌声', 'B. 蝉的叫声', 'C. 北风的呼啸', 'D. 雨点的声音'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 花香', 'B. 稻香', 'C. 饭菜香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的花蜜', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'D' },
+        { question: '感觉到什么？', options: ['A. 温暖的春风', 'B. 炎热的阳光', 'C. 凉爽的秋风', 'D. 寒冷的北风'], answer: 'A' }
+      ];
+    } else if (title.includes('夏天')) {
+      return [
+        { question: '看到了什么？', options: ['A. 红红的太阳', 'B. 金黄的落叶', 'C. 白白的雪花', 'D. 五颜六色的花朵'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 蝉的叫声', 'B. 小鸟的歌声', 'C. 北风的呼啸', 'D. 雨点的声音'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 西瓜的香味', 'B. 花香', 'C. 稻香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的西瓜', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'A' },
+        { question: '感觉到什么？', options: ['A. 炎热的阳光', 'B. 温暖的春风', 'C. 凉爽的秋风', 'D. 寒冷的北风'], answer: 'A' }
+      ];
+    } else if (title.includes('秋天')) {
+      return [
+        { question: '看到了什么？', options: ['A. 金黄的落叶', 'B. 红红的太阳', 'C. 白白的雪花', 'D. 五颜六色的花朵'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 落叶的沙沙声', 'B. 蝉的叫声', 'C. 北风的呼啸', 'D. 小鸟的歌声'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 稻香', 'B. 花香', 'C. 饭菜香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的苹果', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'A' },
+        { question: '感觉到什么？', options: ['A. 凉爽的秋风', 'B. 温暖的春风', 'C. 炎热的阳光', 'D. 寒冷的北风'], answer: 'A' }
+      ];
+    } else if (title.includes('冬天')) {
+      return [
+        { question: '看到了什么？', options: ['A. 白白的雪花', 'B. 红红的太阳', 'C. 金黄的落叶', 'D. 五颜六色的花朵'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 北风的呼啸', 'B. 蝉的叫声', 'C. 小鸟的歌声', 'D. 雨点的声音'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 烤红薯的香味', 'B. 花香', 'C. 稻香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的糖葫芦', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'A' },
+        { question: '感觉到什么？', options: ['A. 寒冷的北风', 'B. 温暖的春风', 'C. 炎热的阳光', 'D. 凉爽的秋风'], answer: 'A' }
+      ];
+    } else if (title.includes('下雨')) {
+      return [
+        { question: '看到了什么？', options: ['A. 下雨的场景', 'B. 下雪的场景', 'C. 晴天的场景', 'D. 阴天的场景'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 雨点的声音', 'B. 小鸟的歌声', 'C. 北风的呼啸', 'D. 蝉的叫声'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 泥土的清香', 'B. 花香', 'C. 饭菜香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的雨水', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'D' },
+        { question: '感觉到什么？', options: ['A. 凉爽的雨水', 'B. 温暖的春风', 'C. 炎热的阳光', 'D. 寒冷的北风'], answer: 'A' }
+      ];
+    } else if (title.includes('下雪')) {
+      return [
+        { question: '看到了什么？', options: ['A. 白白的雪花', 'B. 金黄的落叶', 'C. 红红的太阳', 'D. 五颜六色的花朵'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 踩雪的咯吱声', 'B. 小鸟的歌声', 'C. 蝉的叫声', 'D. 雨点的声音'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 清新的空气', 'B. 花香', 'C. 稻香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 凉凉的雪', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'A' },
+        { question: '感觉到什么？', options: ['A. 冰冷的雪花', 'B. 温暖的春风', 'C. 炎热的阳光', 'D. 凉爽的秋风'], answer: 'A' }
+      ];
+    } else if (title.includes('公园')) {
+      return [
+        { question: '看到了什么？', options: ['A. 公园的美景', 'B. 家里的场景', 'C. 学校的场景', 'D. 商店的场景'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 小朋友的欢笑声', 'B. 小鸟的歌声', 'C. 北风的呼啸', 'D. 雨点的声音'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 花香', 'B. 饭菜香', 'C. 稻香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的零食', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'D' },
+        { question: '感觉到什么？', options: ['A. 开心的心情', 'B. 温暖的阳光', 'C. 凉爽的微风', 'D. 幸福的感觉'], answer: 'A' }
+      ];
+    } else if (title.includes('兔') || title.includes('猫') || title.includes('鸡') || title.includes('鸟')) {
+      return [
+        { question: '看到了什么？', options: ['A. 可爱的小动物', 'B. 美丽的风景', 'C. 有趣的事情', 'D. 五颜六色的花朵'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 小动物的叫声', 'B. 小鸟的歌声', 'C. 北风的呼啸', 'D. 雨点的声音'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 青草的香味', 'B. 花香', 'C. 饭菜香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的食物', 'B. 酸酸的果子', 'C. 咸咸的饭菜', 'D. 无'], answer: 'D' },
+        { question: '感觉到什么？', options: ['A. 快乐的心情', 'B. 温暖的感觉', 'C. 开心的感觉', 'D. 幸福的感觉'], answer: 'A' }
+      ];
+    } else {
+      return [
+        { question: '看到了什么？', options: ['A. ' + topic.title, 'B. 美丽的风景', 'C. 有趣的事情', 'D. 可爱的动物'], answer: 'A' },
+        { question: '听到了什么？', options: ['A. 欢笑声', 'B. 风声', 'C. 雨声', 'D. 歌声'], answer: 'A' },
+        { question: '闻到了什么？', options: ['A. 清新的空气', 'B. 花香', 'C. 饭菜香', 'D. 无'], answer: 'A' },
+        { question: '尝到了什么？', options: ['A. 甜甜的', 'B. 酸酸的', 'C. 咸咸的', 'D. 无'], answer: 'D' },
+        { question: '感觉到什么？', options: ['A. 开心', 'B. 温暖', 'C. 快乐', 'D. 幸福'], answer: 'A' }
+      ];
+    }
+  };
+  
+  const sensesQuestions = getSensesQuestions(topic);
   
   const category = topic.subCategory;
   const title = topic.title;
@@ -788,5 +773,14 @@ Page({
       
       wx.showToast({ title: '正在刷新图片', icon: 'loading', duration: 1000 });
     }
+  },
+
+  onShareAppMessage() {
+    const topic = this.data.topic;
+    return {
+      title: topic ? `${topic.title} - 看图写话练习` : '看图写话练习',
+      desc: topic ? topic.description : '一起来练习看图写话吧！',
+      path: '/pages/index/index'
+    };
   }
 });

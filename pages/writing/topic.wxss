@@ -231,11 +231,6 @@
   color: #FF9800;
 }
 
-.topic-grade {
-  font-size: 22rpx;
-  color: #667eea;
-}
-
 .completed-tag {
   font-size: 22rpx;
   color: #4CAF50;

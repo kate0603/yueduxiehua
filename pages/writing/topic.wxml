@@ -37,7 +37,6 @@
             <view class="topic-title">{{item.title}}</view>
             <view class="topic-meta">
               <text class="topic-difficulty">{{item.difficultyText}}</text>
-              <text class="topic-grade">第{{item.grade}}年级</text>
             </view>
           </view>
           <view class="topic-check" wx:if="{{selectedTopic === item.id}}">✓</view>
@@ -53,7 +52,6 @@
             <view class="topic-title">{{item.title}}</view>
             <view class="topic-meta">
               <text class="topic-difficulty">{{item.difficultyText}}</text>
-              <text class="topic-grade">第{{item.grade}}年级</text>
             </view>
             <view class="completed-tag">✓ 已完成</view>
           </view>
